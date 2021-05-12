@@ -4,9 +4,9 @@ Here are the configuration files for my Arch Linux build. I save this directory 
 
 ```shell
 git clone https://github.com/marcosrdac/dotfiles $HOME/.dotfiles
-# or
+# or, via SSH
 git clone git@github.com:marcosrdac/dotfiles.git $HOME/.dotfiles
-# and
+
 cd $HOME/.dotfiles
 ./install
 ```
