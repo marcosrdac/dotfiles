@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+
+# Shell options
+
+HISTSIZE=1000000000
+HISTFILE="$XDG_CACHE_HOME/terminal/history"
+
 #
 # Bash / ZSH common environment variables and functions
 #

@@ -61,6 +61,7 @@ mkxprt XDG_DESKTOP_DIR "$XDG_TMP_DIR/desktop"       # XDG
 mkxprt XDG_SCREENSHOTS_DIR "$XDG_PICTURES_DIR/scr"  # custom
 mkxprt XDG_MAIL_DIR "$XDG_DATA_HOME/mail"           # custom
 
+
 # SAVED CONFIGS
 export WALLPAPER="$XDG_DATA_HOME/wallpaper"
 

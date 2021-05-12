@@ -4,11 +4,6 @@
 # Bash / ZSH aliases and customizations
 #
 
-# Shell options
-
-HISTSIZE=1000000000
-HISTFILE="$HOME/.cache/shell_history"
-
 ## COMMAND CONFIGURATION
 
 # Completion for existing commands

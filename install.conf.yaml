@@ -7,16 +7,55 @@
 
 - create:
     - ~/tmp
+    # terminal history folder
+    - ~/.cache/terminal
     # vim files
     - ~/.cache/vim/swap
     - ~/.cache/vim/undo
     - ~/.cache/vim
-    # 
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
 
 - link:
+    # home stuff
+    ## bashrc
+    ~/.bashrc: home/.bashrc
+    ~/.bash_profile: home/.bash_profile
+    ~/.dmrc: home/.dmrc
+    ~/.mailcap: home/.mailcap
+    ~/.xinitrc: home/.xinitrc
+    #~/.nvidia-xinitrc: home/.nvidia-xinitrc
+    ~/.profile: home/.profile
+    ~/.xprofile: home/.xprofile
+    ~/.xsession: home/.xsession
+    ~/.zshenv: home/.zshenv
+    ~/.terminfo: home/.terminfo
+    # local
+    ## bin
+    - ~/.local/bin: local/bin
+    ## share
+    ### themes
+    - ~/.local/share/themes: local/share/themes
+    - ~/.themes: local/share/themes
+    ### icons
+    - ~/.local/share/icons: local/share/icons
+    #- ~/.icons: local/share/icons
+    #- ~/.icons/: local/share/icons/default
+    ### fonts
+    - ~/.local/share/fonts: local/share/fonts
+    ### applications
+    - ~/.local/share/applications/: local/share/applications/*
+    ### lf
+    - ~/.local/share/lf/: local/share/lf/*
+    #
+    # special programs
+    #
+    # inkscape
     ~/.config/inkscape/preferences.xml: config/inkscape/preferences.xml
+    # gimp
     ~/.config/GIMP/2.10/: config/GIMP/2.10/*
-    ~/.config/mutt/muttrc: config/mutt/muttrc
+    # mutt
     ~/.config/mutt/muttrc: config/mutt/muttrc
     # vim stuff
     ## vim config files from nvim's
@@ -33,7 +72,53 @@
     ~/.config/vim/spell: config/nvim/spell
     # qutebrowser
     ~/.config/qutebrowser/: config/qutebrowser/*
-
-
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    ~/.config/shell: config/shell
+    # transmission
+    ~/.config/transmission-daemon/: config/transmission-daemon/*
+    # wal (NOT NEEDED!)
+    ~/.config/wal/cache: cache/wal
+    # other programs
+    - ~/.config/bspwm: config/bspwm
+    - ~/.config/cron: config/cron
+    - ~/.config/dunst: config/dunst
+    - ~/.config/GIMP: config/GIMP
+    - ~/.config/htop: config/htop
+    - ~/.config/inkscape: config/inkscape
+    - ~/.config/isync: config/isync
+    - ~/.config/keepmenu: config/keepmenu
+    - ~/.config/kpmenu: config/kpmenu
+    - ~/.config/lf: config/lf
+    - ~/.config/LibreCAD: config/LibreCAD
+    - ~/.config/matplotlib: config/matplotlib
+    - ~/.config/mpd: config/mpd
+    - ~/.config/mpv: config/mpv
+    - ~/.config/msmtp: config/msmtp
+    - ~/.config/mutt: config/mutt
+    - ~/.config/ncmpcpp: config/ncmpcpp
+    - ~/.config/neofetch: config/neofetch
+    - ~/.config/networkmanager-dmenu: config/networkmanager-dmenu
+    - ~/.config/newsboat: config/newsboat
+    - ~/.config/nvim: config/nvim
+    - ~/.config/picom: config/picom
+    - ~/.config/podcast2playlist: config/podcast2playlist
+    - ~/.config/polybar: config/polybar
+    - ~/.config/qutebrowser: config/qutebrowser
+    - ~/.config/rofi: config/rofi
+    - ~/.config/schemegen: config/schemegen
+    - ~/.config/shell: config/shell
+    - ~/.config/stardict: config/stardict
+    - ~/.config/sxhkd: config/sxhkd
+    - ~/.config/sxiv: config/sxiv
+    - ~/.config/task: config/task
+    - ~/.config/tmux: config/tmux
+    - ~/.config/transmission-daemon: config/transmission-daemon
+    - ~/.config/urlscan: config/urlscan
+    - ~/.config/vifm: config/vifm
+    - ~/.config/wal: config/wal
+    - ~/.config/wal_steam: config/wal_steam
+    - ~/.config/Xresources: config/Xresources
+    - ~/.config/zathura: config/zathura
+    - ~/.config/mimeapps.list: config/mimeapps.list
+    - ~/.config/pylintrc: config/pylintrc
+    - ~/.config/pythonstartup.py: config/pythonstartup.py
+    - ~/.config/user-dirs.dirs: config/user-dirs.dirs

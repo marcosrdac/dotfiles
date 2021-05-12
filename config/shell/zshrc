@@ -12,11 +12,10 @@ zstyle ':vcs_info:git:*' formats "%{$fg_bold[magenta]%}%b<%r%f"
 zstyle ':vcs_info:*' enable git
 
 # History in cache directory
-HISTSIZE="10000000000"
+#HISTFILE="$XDG_CACHE_HOME/zsh/history"
+#HISTSIZE="10000000000"
 SAVEHIST="10000000000"
-HISTFILE="$HOME/.cache/terminal/history"
 HISTCONTROL=ignorespace
-#HISTFILE="~/.cache/zsh/history"
 
 # Basic auto tab completion
 autoload -U compinit
