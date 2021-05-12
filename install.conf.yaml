@@ -48,8 +48,6 @@
     ~/.local/share/applications/:
       glob: true
       path: local/share/applications/*
-    ### lf
-    ~/.local/share/lf/marks: local/share/lf/marks
     # special programs
     ~/.config/inkscape/preferences.xml:
       create: true
@@ -121,5 +119,5 @@
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
 
 - shell:
-  - [fc-cache -vf ~/.local/share/fonts, Installing fonts]
-  - [xrdb -merge ~/.config/Xresources/main, Updating X resources]
+  - ["fc-cache -vf ~/.local/share/fonts", Installing fonts]
+  - ["xrdb -merge ~/.config/Xresources/main", Updating X resources]
