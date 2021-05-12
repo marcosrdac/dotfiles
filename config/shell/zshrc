@@ -3,7 +3,6 @@ autoload -U colors && colors
 
 autoload -Uz vcs_info
 setopt prompt_subst
-short_pwd() { echo "${PWD/$HOME/~}" | perl -F/ -ane 'print join( "/", map { $i++ < @F - 2 ? substr $_,0,1 : $_ } @F)' }
 PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}$(short_pwd)%{$reset_color%}$(task_indicator)%{$fg[red]%}]%{$reset_color%}%b '
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )

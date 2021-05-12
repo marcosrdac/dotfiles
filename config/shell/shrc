@@ -130,17 +130,28 @@ cdf() {  # needs adjusting
   cd $(find -H * 2>/dev/null -maxdepth 1 -type d | fzy -p "cd " | (read f && echo ${f:-'.'}))
 }
 
-task_indicator() {
-  # symbols: ×○·‼
-  if [ `task +READY +OVERDUE count` -gt 0 ]
-    then echo ' ×'
-  elif [ `task +READY +DUETODAY count` -gt 0 ]
-    then echo ' ○'
-  elif [ `task +READY +TOMORROW count` -gt 0 ]
-    then echo ''
-  elif [ `task +READY +URGENT count` -gt 0 ]
-    then echo ' ‼'
-  else
-    echo '$'
-  fi
+short_pwd() {
+  echo "${PWD/$HOME/~}" | perl -F/ -ane 'print join( "/", map { $i++ < @F - 2 ? substr $_,0,1 : $_ } @F)'
 }
+
+if `which task 1>/dev/null 2>&1`
+then
+  task_indicator() {
+    # symbols: ×○·‼
+    if [ `task +READY +OVERDUE count` -gt 0 ]
+      then echo ' ×'
+    elif [ `task +READY +DUETODAY count` -gt 0 ]
+      then echo ' ○'
+    elif [ `task +READY +TOMORROW count` -gt 0 ]
+      then echo ''
+    elif [ `task +READY +URGENT count` -gt 0 ]
+      then echo ' ‼'
+    else
+      echo '$'
+    fi
+  }
+else
+  task_indicator() {
+      echo '$'
+  }
+fi
