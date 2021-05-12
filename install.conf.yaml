@@ -73,7 +73,7 @@
     ## shell
     ~/.config/shell/:
       glob: true
-      path: config/shell/.*
+      path: config/shell/*
     ~/.config/shell/.zprofile: config/shell/.zprofile
     ~/.config/shell/.zshrc: config/shell/.zshrc
     ## transmission
