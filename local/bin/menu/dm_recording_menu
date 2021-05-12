@@ -1,0 +1,24 @@
+#!/bin/sh
+
+recording_pidfile=/tmp/record.pid
+
+askrecording()
+{
+  choice=$(dm_choose "recording menu" $(record --options))
+  [ -n choice ] && record $choice
+}
+
+askend()
+{
+  out="$(cat $(record --get-out-file))"
+	response=$(dm_choose "end current recording?" no yes)
+	[ $response = yes ] && record kill && asksave $out
+}
+
+asksave()
+{
+	response=$(dm_choose "save recording?" yes no)
+  [ $response = no ] && rm "$1"
+}
+
+record --recording && (askend && exit 0) || askrecording

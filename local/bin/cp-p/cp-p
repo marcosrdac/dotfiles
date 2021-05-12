@@ -1,0 +1,136 @@
+#!/bin/sh
+# Based on https://github.com/ericpaulbishop/cp_p
+# and https://unix.stackexchange.com/questions/44040/a-standard-tool-to-convert-a-byte-count-into-human-kib-mib-etc-like-du-ls1
+
+# FIXME: when cmd == mv, '\r' doesn't work no idea why...
+
+H_FUN='function human(x) {
+    s=" B   KiB MiB GiB TiB EiB PiB YiB ZiB"
+    while (x >= 1024 && length(s) > 1) {
+        x /= 1024
+        s = substr(s, 5)
+    }
+    s = substr(s, 1, 4)
+    xf = (s == " B  ") ? "%d" : "%.2f"
+    return sprintf(xf"%s", x, s)
+}'
+
+if [ "$1" = --mv ]; then
+    cmd='mv'
+    shift
+else
+    cmd='cp
+-r'
+fi
+
+if [ "$1" = --new-line ]; then
+    R='\n'
+    shift
+else
+    R='\r'
+fi
+
+# ARGS STUFF
+
+srcs=''
+srcF=''
+dest=''
+opts=''
+
+i=1
+while [ $i -le $# ]; do
+    arg=$(eval echo '$'$i)
+    if [ $i = $# ] && [ ! "$dest" ]; then
+        dest="$arg"
+        break
+    fi
+    if [ -e "$arg" ]; then
+        srcs="$srcs$arg
+"
+    elif [ "$arg" = '-t' ]; then
+        i=$((i + 1))
+        dest=$(eval echo '$'$i)
+    elif [ "$arg" = '-F' ]; then
+        ##### -F: file including sources files #####
+        i=$((i + 1))
+        srcF=$(eval echo '$'$i)
+    else
+        opts="$opts$arg
+"
+    fi
+    i=$((i + 1))
+done
+
+if [ "$srcF" ]; then
+    while read -r line; do
+        if [ -e "$line" ]; then
+            srcs="$srcs$line
+"
+        fi
+    done < "$srcF"
+fi
+
+# remove last empty line
+srcs=$(echo "$srcs" | head -c -1)
+
+if [ ! "$srcs" ] || [ ! "$dest" ]; then
+    if [ "$cmd" = mv ]; then
+        mv --help
+    else
+        cp --help
+    fi
+    exit 1
+fi
+
+# THE ACTUAL THING
+
+printf 'Calculating size'$R
+
+exists=0
+total_size=0
+IFS='
+'; for src in $srcs; do
+       exists=1
+       arg_size=$(du -sb "$src" 2>/dev/null | awk '{print $1}')
+       if [ -n "$arg_size" ]; then
+           total_size=$((total_size + arg_size))
+       fi
+   done
+
+if [ "$exists" = "0" ]; then
+    echo "ERROR: No source file specified exists. Please try again"
+    exit 1
+fi
+
+total_size_h=$(echo $total_size | awk "$H_FUN"'{print human($1)}')
+
+count=0
+IFS='
+'; for src in $srcs; do
+       # if same name
+       fname=$(basename "$src")
+       finaldest=$(realpath "$dest")
+       if [ -e "$dest/$fname" ]; then
+           finaldest="$dest/$fname-new"
+       fi
+       strace -q -ewrite $cmd $opts "$src" "$finaldest" 2>&1 |
+           awk "$H_FUN"'{
+            count += $NF
+            if (total_size > 0 && count % 10 == 0) {
+                percent = (count / total_size) * 100
+                printf "%3d%% (%s/%s) %s to %s'$R'", percent, human(count), total_size_h, src, finaldest
+            }
+        }' total_size=$total_size \
+               total_size_h="$total_size_h" \
+               count=$count \
+               src="$src" finaldest="$finaldest"
+
+       arg_size=$(du -sb "$src" 2>/dev/null | awk '{ print $1 }')
+       count=$((count + arg_size))
+   done
+
+if [ "$cmd" = mv ]; then
+    printf 'Done moving'$R
+else
+    printf 'Done copying'$R
+fi

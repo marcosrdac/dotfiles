@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+IFS='	'
+
+$(dirname $0)/bin/action --$(basename $0) $@

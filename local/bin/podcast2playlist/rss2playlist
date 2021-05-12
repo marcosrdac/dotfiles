@@ -1,0 +1,48 @@
+#!/bin/bash
+
+RSS_FILE="$HOME/.config/podcast2playlist/podcasts_rss"
+XSLS_FOLDER="$HOME/.local/bin/podcast2playlist/xsls"
+RSS_FOLDER="$HOME/.local/share/newsboat/rss"
+
+# m3u files
+PLFOLDER="$HOME/res/plt"
+PLTYPE="m3u"
+
+# pls filees
+#PLFOLDER2=""
+#PLTYPE2="pls"
+
+# volumio files
+#PLFOLDER3=""
+#PLTYPE3="volumio"
+
+#output type (pls, m3u of Volumio 2)
+
+#download rss feeds
+wget_cache_folder="$HOME/.cache/wget"
+test -d "$wget_cache_folder" || mkdir -p "$wget_cache_folder"
+while read p; do
+  echo "${p%;*}"
+  echo "${p##*;}"
+  wget "${p##*;}" -O "$RSS_FOLDER"/"${p%;*}".rss --output-file="$wget_cache_folder/log" --hsts-file=$wget_cache_folder/hsts
+done <$RSS_FILE
+
+#convert rss feeds to playlist
+shopt -s nullglob
+for f in "$RSS_FOLDER"/*.rss
+do
+        filename=$(basename "$f")
+        #extension="${filename##*.}"
+        filename="${filename%.*}"
+        echo "Converting RSS file: $f"
+
+        xsltproc "$XSLS_FOLDER"/"$PLTYPE.xsl" "$f" | sed '/^$/d' | sed -e 's/^[ \t]*//' > "$PLFOLDER"/"$filename"."$PLTYPE"
+        #xsltproc -o "$PLFOLDER"/"$filename"."$PLTYPE" "$XSLS_FOLDER"/"$PLTYPE.xsl" "$f"
+
+        #xsltproc -o "$PLFOLDER2"/"$filename"."$PLTYPE2" "$PLTYPE2".xsl "$f"
+
+        #xsltproc -o "$PLFOLDER3"/"$filename"            "$PLTYPE3".xsl "$f"
+	    #sed -i '$ s/.$//' "$PLFOLDER3"/"$filename"
+	    #echo "]" >> "$PLFOLDER3"/"$filename"
+        #rm "$f"
+done

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+chosen=$(dm_choose "system menu" 'set international keyboard' 'set brazilian keyboard' 'restart bspwm' 'reload sxhkd' 'restart polybar' 'source .Xresources')
+
+case "$chosen" in
+  "set international keyboard")
+    xdotool key Caps_Lock
+    setxkbmap -layout us -variant intl -option caps:swapescape ;;
+  "set brazilian keyboard")
+    xdotool key Caps_Lock
+    setxkbmap -layout br -option caps:swapescape ;;
+  "restart bspwm")      bspc wm -r ;;
+  "reload sxhkd")       kill -USR1 $(pidof sxhkd) ;;
+  "restart polybar")    polybar-msg cmd restart ;;
+  "source .xprofile")   sh .xprofile ;;
+  "source .Xresources") source .xprofile ;;
+esac

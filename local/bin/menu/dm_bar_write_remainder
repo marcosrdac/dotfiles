@@ -1,0 +1,3 @@
+#!/bin/sh
+
+polybar_write_remainder "$(dm_choose 'write the note')"

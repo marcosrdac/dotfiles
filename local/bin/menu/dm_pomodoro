@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DMENU=${DMENU:-dmenu}
+
+# choices
+choices="pomodoro\nbreak\nhard break\nkill"
+chosen=$(echo -e "$choices" | $DMENU -p 'set alarm:')
+[ -z "$chosen" ] && exit 0
+
+case "$chosen" in
+    "pomodoro")   $((interval=25*60)) ;;
+    "break")      $((interval=5*60)) ;;
+    "hard break") $((interval=30*60)) ;;
+    "kill")       killall timer; exit 0 ;;
+    *)            $((interval=chosen)) ;;
+esac
+
+timer "$interval"

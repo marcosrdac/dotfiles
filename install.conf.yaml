@@ -1,0 +1,39 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~']
+
+- create:
+    - ~/tmp
+    # vim files
+    - ~/.cache/vim/swap
+    - ~/.cache/vim/undo
+    - ~/.cache/vim
+    # 
+
+- link:
+    ~/.config/inkscape/preferences.xml: config/inkscape/preferences.xml
+    ~/.config/GIMP/2.10/: config/GIMP/2.10/*
+    ~/.config/mutt/muttrc: config/mutt/muttrc
+    ~/.config/mutt/muttrc: config/mutt/muttrc
+    # vim stuff
+    ## vim config files from nvim's
+    ~/.config/vim/vimrc: config/nvim/init.vim
+    ~/.config/vim/abbreviations.vim: config/nvim/abbreviations.vim
+    ~/.config/vim/automation.vim: config/nvim/automation.vim
+    ~/.config/vim/plugins.vim: config/nvim/plugins.vim
+    ~/.config/vim/scripts.vim: config/nvim/scripts.vim
+    ~/.config/vim/variables.vim: config/nvim/variables.vim
+    ## vim config folders from nvim's
+    ~/.config/vim/autoload: config/nvim/autoload
+    ~/.config/vim/colors: config/nvim/colors
+    ~/.config/vim/ftplugin: config/nvim/ftplugin
+    ~/.config/vim/spell: config/nvim/spell
+    # qutebrowser
+    ~/.config/qutebrowser/: config/qutebrowser/*
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

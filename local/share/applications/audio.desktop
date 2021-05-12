@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Audio player
+Exec=/usr/bin/env mpv --force-window %u
