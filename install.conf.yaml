@@ -132,5 +132,5 @@
 - shell:
   - ["fc-cache -vf ~/.local/share/fonts", Installing fonts]
   - ["xrdb -merge ~/.config/Xresources/main", Updating X resources]
-  - ["cd ~/bin/dmenu; make; sudo make install", Making dmenu]
-  - ["cd ~/bin/st; make; sudo make install", Making st]
+  - ["cd ~/.local/bin/dmenu; make; sudo make install", Making dmenu]
+  - ["cd ~/.local/bin/st; make; sudo make install", Making st]
