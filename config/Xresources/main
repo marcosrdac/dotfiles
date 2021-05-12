@@ -1,5 +1,5 @@
 ! font
-#define FONT_NAME Hurmit Nerd Font
+#define FONT_NAME Hack
 #define FONT_SIZE 12
 
 #define SYMBOL_FONT_NAME Font Awesome 5 Free Solid

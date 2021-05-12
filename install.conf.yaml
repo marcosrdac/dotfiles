@@ -38,6 +38,10 @@
     ### themes
     ~/.local/share/themes: local/share/themes
     ~/.themes: local/share/themes
+    # theme + wal
+    ~/.config/wal/templates/gtkrc.css.base: ~/.local/share/themes/FlatColor/gtk-2.0/gtkrc.base
+    ~/.config/wal/templates/gtk3.css.base: ~/.local/share/themes/FlatColor/gtk-3.0/gtk.css.base
+    ~/.config/wal/templates/gtk32.css.base: ~/.local/share/themes/FlatColor/gtk-3.20/gtk.css.base
     ### icons
     ~/.local/share/icons: local/share/icons
     #- ~/.icons: local/share/icons
@@ -82,15 +86,18 @@
     ~/.config/bspwm: config/bspwm
     ~/.config/cron: config/cron
     ~/.config/dunst: config/dunst
+    ~/.config/wal/templates/dunstrc.base: ~/.config/dunst/dunstrc.base
     ~/.config/htop: config/htop
     ~/.config/isync: config/isync
     ~/.config/keepmenu: config/keepmenu
+    ~/.config/wal/templates/config.ini.base: ~/.config/keepmenu/config.ini.base
     ~/.config/kpmenu: config/kpmenu
     ~/.config/lf: config/lf
     ~/.config/LibreCAD: config/LibreCAD
     ~/.config/matplotlib: config/matplotlib
     ~/.config/mpd: config/mpd
     ~/.config/mpv: config/mpv
+    ~/.config/wal/templates/mpv.conf.base: ~/.config/mpv/mpv.conf.base
     ~/.config/msmtp: config/msmtp
     ~/.config/ncmpcpp: config/ncmpcpp
     ~/.config/neofetch: config/neofetch
@@ -109,10 +116,14 @@
     ~/.config/tmux: config/tmux
     ~/.config/urlscan: config/urlscan
     ~/.config/vifm: config/vifm
-    ~/.config/wal: config/wal
+    ~/.config/wal/templates/:
+      glob: true
+      path: config/wal/templates/*
     ~/.config/wal_steam: config/wal_steam
     ~/.config/Xresources: config/Xresources
     ~/.config/zathura: config/zathura
+    ~/.config/wal/templates/zathura_light.base: ~/.config/zathura/zathura_light.base
+    ~/.config/wal/templates/zathura_dark.base: ~/.config/zathura/zathura_dark.base
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/pylintrc: config/pylintrc
     ~/.config/pythonstartup.py: config/pythonstartup.py
@@ -121,3 +132,5 @@
 - shell:
   - ["fc-cache -vf ~/.local/share/fonts", Installing fonts]
   - ["xrdb -merge ~/.config/Xresources/main", Updating X resources]
+  - ["cd ~/bin/dmenu; make; sudo make install", Making dmenu]
+  - ["cd ~/bin/st; make; sudo make install", Making st]

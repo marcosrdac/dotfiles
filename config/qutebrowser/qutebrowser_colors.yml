@@ -1,122 +1,122 @@
 colors:
     statusbar:
         caret:
-            bg: "#0F161E"
-            fg: "#89e2c2"
+            bg: "#24211c"
+            fg: "#daddd0"
         passthrough:
-            bg: "#0F161E"
-            fg: "#89e2c2"
+            bg: "#24211c"
+            fg: "#daddd0"
         command:
-            bg: "#89e2c2"
-            fg: "#0F161E"
+            bg: "#daddd0"
+            fg: "#24211c"
             private:
                 bg: "white"
                 fg: "black"
         insert:
-            bg: "#89e2c2"
-            fg: "#0F161E"
+            bg: "#daddd0"
+            fg: "#24211c"
         normal:
-            bg: "#0F161E"
-            fg: "#89e2c2"
+            bg: "#24211c"
+            fg: "#daddd0"
         private:
             bg: "black"
             fg: "white"
         progress:
-            bg: "#89e2c2"
+            bg: "#daddd0"
         url:
-            fg: "#B7A740"
+            fg: "#B5C9B0"
             error:
-                fg: "#B95052"
+                fg: "#AFAF93"
             hover:
-                fg: "#89e2c2"
+                fg: "#daddd0"
             success:
                 http:
-                    fg: "#89e2c2"
+                    fg: "#daddd0"
                 https:
-                    fg: "#595A59"
+                    fg: "#9DB09A"
             warn:
-                fg: "#B95052"
+                fg: "#AFAF93"
     tabs:
         bar:
-            bg: "#0F161E"
+            bg: "#24211c"
         even:
-            fg: "#89e2c2"
-            bg: "#0F161E"
+            fg: "#daddd0"
+            bg: "#24211c"
         odd:
-            fg: "#89e2c2"
-            bg: "#0F161E"
+            fg: "#daddd0"
+            bg: "#24211c"
         selected:
             even:
-                fg: "#0F161E"
-                bg: "#89e2c2"
+                fg: "#24211c"
+                bg: "#daddd0"
             odd:
-                fg: "#0F161E"
-                bg: "#89e2c2"
+                fg: "#24211c"
+                bg: "#daddd0"
     completion:
         category:
-            bg: "#89e2c2"
-            fg: "#0F161E"
+            bg: "#daddd0"
+            fg: "#24211c"
             border:
-                bottom: "#89e2c2"
-                top: "#89e2c2"
+                bottom: "#daddd0"
+                top: "#daddd0"
         even:
-            bg: "#0F161E"
+            bg: "#24211c"
         odd:
-            bg: "#0F161E"
+            bg: "#24211c"
         item:
             selected:
-                bg: "#89e2c2"
-                fg: "#0F161E"
+                bg: "#daddd0"
+                fg: "#24211c"
                 border:
-                    bottom: "#0F161E"
-                    top:    "#0F161E"
+                    bottom: "#24211c"
+                    top:    "#24211c"
         match:
-            fg: "#595A59"
+            fg: "#9DB09A"
         scrollbar:
-            bg: "#89e2c2"
-            fg: "#0F161E"
+            bg: "#daddd0"
+            fg: "#24211c"
     downloads:
         bar:
-            bg: "#0F161E"
+            bg: "#24211c"
         error:
-            fg: "#89e2c2"
-            bg: "#595A59"
+            fg: "#daddd0"
+            bg: "#9DB09A"
         start:
-            fg: "#89e2c2"
-            bg: "#0F161E"
+            fg: "#daddd0"
+            bg: "#24211c"
         stop:
-            fg: "#89e2c2"
-            bg: "#B95052"
+            fg: "#daddd0"
+            bg: "#AFAF93"
     hints:
-        fg: "#89e2c2"
-        bg: "#0F161E"
+        fg: "#daddd0"
+        bg: "#24211c"
         match:
-            fg: "#595A59"
+            fg: "#9DB09A"
     keyhint:
-        fg: "#89e2c2"
-        bg: "#0F161E"
+        fg: "#daddd0"
+        bg: "#24211c"
         suffix:
-            fg: "#B95052"
+            fg: "#AFAF93"
     messages:
         error:
-            fg: "#0F161E"
-            bg: "#B95052"
-            border: "#B95052"
+            fg: "#24211c"
+            bg: "#AFAF93"
+            border: "#AFAF93"
         info:
-            fg: "#0F161E"
-            bg: "#89e2c2"
-            border: "#89e2c2"
+            fg: "#24211c"
+            bg: "#daddd0"
+            border: "#daddd0"
         warning:
-            fg: "#89e2c2"
-            bg: "#B95052"
-            border: "#B95052"
+            fg: "#daddd0"
+            bg: "#AFAF93"
+            border: "#AFAF93"
     prompts:
-        fg: "#89e2c2"
-        bg: "#0F161E"
-        border: "#0F161E"
+        fg: "#daddd0"
+        bg: "#24211c"
+        border: "#24211c"
         selected:
-            bg: "#B95052"
+            bg: "#AFAF93"
     webpage:
-        bg: "#89e2c2"
+        bg: "#daddd0"
 hints:
-    border: "1px solid #89e2c2"
+    border: "1px solid #daddd0"

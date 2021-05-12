@@ -1,9 +1,15 @@
 #!/bin/sh
 
-# verify if there is a wal cache
-[ ! -f "$HOME/.cache/wal/colors.sh" ] && dmenu "$@" && exit
-# import colors from wal
-. "$HOME/.cache/wal/colors.sh"
+if [ -f "$HOME/.cache/wal/colors.sh" ]
+then
+  # import colors from wal
+  . "$HOME/.cache/wal/colors.sh"
+else
+  # set default colors
+  background='#020202'
+  foreground='#ffffff'
+fi
+
 # import font from Xresources
 font=`xrdb -query | awk -F'\t' '$1~/^*font:$/{print $2}'`
 

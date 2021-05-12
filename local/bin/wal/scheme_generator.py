@@ -2,16 +2,16 @@ import numpy as np
 from median_cut import get_scheme
 
 # STD_COLORS = np.asarray([
-    # (0.0, 0.0, 0.0),  # black
-    # (1.0, 0.0, 0.0),  # red
-    # (0.0, 1.0, 0.0),  # green
-    # (1.0, 1.0, 0.0),  # yellow
-    # (0.0, 0.0, 1.0),  # blue
-    # (1.0, 0.0, 1.0),  # magenta
-    # (0.0, 1.0, 1.0),  # cyan
-    # (1.0, 1.0, 1.0),  # white
+#   (0.0, 0.0, 0.0),  # black
+#   (1.0, 0.0, 0.0),  # red
+#   (0.0, 1.0, 0.0),  # green
+#   (1.0, 1.0, 0.0),  # yellow
+#   (0.0, 0.0, 1.0),  # blue
+#   (1.0, 0.0, 1.0),  # magenta
+#   (0.0, 1.0, 1.0),  # cyan
+#   (1.0, 1.0, 1.0),  # white
 # ])
-
+# 
 # COLORS = np.append(.4+.6*STD_COLORS, .4+.6*STD_COLORS, axis=0)
 # COLORS[0] = 0.01
 
@@ -20,7 +20,7 @@ def perc_to_hex(r, g, b):
     return f'#{r:02x}{g:02x}{b:02x}'
 
 def get_colors(path):
-    # colors = COLORS
+    #colors = COLORS
     colors = get_scheme(path, 3)
     if len(colors) == 8:
         light_colors = 1.30 * colors  # change it
