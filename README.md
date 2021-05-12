@@ -1,51 +1,29 @@
 # My dotfiles
 
-Here are the configuration files for my Arch Linux build. Currently I save this directory in "~/.dotfiles" and, when rebuilding my system, just send to a terminal:
+Here are the configuration files for my Arch Linux build. I save this directory in "~/.dotfiles" and, when installing Arch to a new system, I just clone the repository and run the installation script after having my dependencies installed (see Dependencies section).
 
 ```shell
 git clone https://github.com/marcosrdac/dotfiles $HOME/.dotfiles
-```
-
-or, better, for ssh cloning (remember to create your SSH keys and add them to GitHub!):
-
-```shell
+# or
 git clone git@github.com:marcosrdac/dotfiles.git $HOME/.dotfiles
+# and
+cd $HOME/.dotfiles
+./install
 ```
 
-and basically symlink all the files to their places inside ~/ (what is really easy to do from *vifm*, so I don't believe I'm ever going to make script for that). There are also some symlinks I make in order for my GTK2 themes to work (I hate having to make this extra step):
-
-```shell
-ln -s ~/.local/share/themes ~/.themes
-ln -s ~/.local/share/icons ~/.icons
-```
-
-Then I select the FlatColor theme in *lxappearance*, and themes will be working fine (sadly, it creates the "~/.gtkrc-2.0", which seems to be needed for gtk2 theming...).
-
-It's important to make the packages inside "\~/.local/bin/st" and "\~/.local/bin/dmenu" with:
-
-```shell
-cd ~/.local/bin/dmenu
-make
-sudo make install
-
-cd ~/.local/bin/st
-make
-sudo make install
-```
-
-So that you have a terminal and the menu program I use. Then I set *zsh* to my user's default shell:
+Then I set *zsh* as my user's default interactive shell:
 
 ```shell
 chsh -s $(which zsh)
 ```
 
-I also give permissions for me to shutdown my PC without password, putting the next line in "/etc/sudoers":
+I also give permissions for me to shutdown my PC and mount drives without password, putting the next line in "/etc/sudoers":
 
 ```
-%wheel ALL=(ALL) NOPASSWD: /sbin/shutdown, /sbin/poweroff, /sbin/halt, /sbin/reboot, /bin/systemctl suspend, /sbin/mount, /sbin/umount
+%wheel ALL=(ALL) NOPASSWD: /sbin/shutdown, /sbin/poweroff, /sbin/halt, /bin/systemctl suspend, /sbin/mount, /sbin/umount
 ```
 
-Set udev rules for backlight in the file "/etc/udev/rules.d/90-backlight.rules":
+When using NVidia, I sometimes have to set udev rules for backlight controls to work. So I edit the file "/etc/udev/rules.d/90-backlight.rules" and put the following there:
 ```shell
 SUBSYSTEM==“backlight”, ACTION==“add”,
 ACTION=="change", SUBSYSTEM=="backlight", RUN+="/usr/bin/chgrp wheel /sys/class/backlight/%k/brightness"
@@ -61,8 +39,7 @@ systemctl start devmon@$USER
 
 ## Dependencies
 
-There are programs that I need Installed in order for my configs to work correctly. I'll try to list them here.
-
+There are programs that I need Installed in order for my configs to work correctly. Here is the list:
 
 ### From Arch Oficial Repositories
 
@@ -105,7 +82,7 @@ zip unzip unrar
 texlive
 # making mouse cursor disappear
 unclutter
-# printscreen
+# screenshot
 scrot
 # e-reader
 zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
@@ -139,4 +116,4 @@ tremc
 
 ## To-do
 
-  * see if I can securely upload my offlineimaprc.
+- [ ] Review dependencies
