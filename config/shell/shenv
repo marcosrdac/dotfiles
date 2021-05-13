@@ -179,7 +179,13 @@ mkxprt GNUPGHOME "$HOME/.config/gnupg"
 export INPUTRC="$HOME/.config/inputrc"
 ## vim-gnupg
 export GPG_TTY=`tty`
-## ESA SNAP (correcting blank menus)
+## java options
+_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on $_JAVA_OPTIONS"
+_JAVA_OPTIONS="-Dswing.aatext=true $_JAVA_OPTIONS"
+_JAVA_OPTIONS="-Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $_JAVA_OPTIONS"
+_JAVA_OPTIONS="-Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel $_JAVA_OPTIONS"
+export _JAVA_OPTIONS
+### ESA SNAP: correcting blank menus
 export _JAVA_AWT_WM_NONREPARENTING=1
 ## man (colors)
 export LESS_TERMCAP_mb=$'\E[01;31m'
