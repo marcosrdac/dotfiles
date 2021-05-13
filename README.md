@@ -14,7 +14,7 @@ cd $HOME/.dotfiles
 Then I set *zsh* as my user's default interactive shell:
 
 ```shell
-chsh -s $(which zsh)
+chsh -s `which zsh`
 ```
 
 I also give permissions for me to shutdown my PC and mount drives without password, putting the next line in "/etc/sudoers":

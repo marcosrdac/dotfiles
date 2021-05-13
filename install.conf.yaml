@@ -6,7 +6,7 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
 
-- clean: ['~', '~/.config', '.local']
+- clean: ['~', '~/.config', '~/.local']
 
 - create:
     - ~/tmp
@@ -19,7 +19,6 @@
 
 - link:
     # home stuff
-    ## bashrc
     ~/.bashrc: home/.bashrc
     ~/.bash_profile: home/.bash_profile
     ~/.dmrc: home/.dmrc
@@ -31,36 +30,38 @@
     ~/.xsession: home/.xsession
     ~/.zshenv: home/.zshenv
     ~/.terminfo: home/.terminfo
-    # local
-    ## bin
-    ~/.local/bin: local/bin
-    ## share
-    ### themes
-    ~/.local/share/themes: local/share/themes
-    ~/.themes: local/share/themes
+
+    # bin
+    ~/.local/bin: bin
+
+    # share
+
+    ## themes
+    ~/.local/share/themes: share/themes
+    ~/.themes: share/themes
     # theme + wal
     ~/.config/wal/templates/gtkrc.css.base: ~/.local/share/themes/FlatColor/gtk-2.0/gtkrc.base
     ~/.config/wal/templates/gtk3.css.base: ~/.local/share/themes/FlatColor/gtk-3.0/gtk.css.base
     ~/.config/wal/templates/gtk32.css.base: ~/.local/share/themes/FlatColor/gtk-3.20/gtk.css.base
-    ### icons
-    ~/.local/share/icons: local/share/icons
-    #- ~/.icons: local/share/icons
-    #- ~/.icons/: local/share/icons/default
-    ### fonts
-    ~/.local/share/fonts: local/share/fonts
-    ### applications
+
+    ## icons
+    ~/.local/share/icons: share/icons
+    #- ~/.icons: share/icons
+
+    ## fonts
+    ~/.local/share/fonts: share/fonts
+
+    ## applications
     ~/.local/share/applications/:
       glob: true
-      path: local/share/applications/*
-    # special programs
-    ~/.config/inkscape/preferences.xml:
-      create: true
-      path: config/inkscape/preferences.xml
-    ~/.config/GIMP/2.10/:
-      glob: true
-      path: config/GIMP/2.10/*
+      path: share/applications/*
+
+    # special configs
+    ## mutt
     ~/.config/mutt/muttrc: config/mutt/muttrc
-    ~/.config/vim/vimrc: config/nvim/init.vim
+    ## vim
+    #~/.config/vim/vimrc: config/nvim/init.vim
+    ~/.config/vim/init.vim: config/nvim/init.vim
     ~/.config/vim/abbreviations.vim: config/nvim/abbreviations.vim
     ~/.config/vim/automation.vim: config/nvim/automation.vim
     ~/.config/vim/plugins.vim: config/nvim/plugins.vim
@@ -74,15 +75,37 @@
       glob: true
       path: config/qutebrowser/*
       create: true
+
     ## shell
     ~/.config/shell/:
       glob: true
       path: config/shell/*
     ~/.config/shell/.zprofile: config/shell/.zprofile
     ~/.config/shell/.zshrc: config/shell/.zshrc
+
     ## transmission
     ~/.config/transmission-daemon/settings.json: "config/transmission-daemon/settings.json"
-    # other programs
+
+    ## inkscape
+    ~/.config/inkscape/preferences.xml:
+      create: true
+      path: config/inkscape/preferences.xml
+    ## gimp
+    ~/.config/GIMP/2.10/:
+      glob: true
+      path: config/GIMP/2.10/*
+
+    ## wal
+    ~/.config/wal/templates/:
+      glob: true
+      path: config/wal/templates/*
+
+    ## zathura
+    ~/.config/zathura: config/zathura
+    ~/.config/wal/templates/zathura_light.base: ~/.config/zathura/zathura_light.base
+    ~/.config/wal/templates/zathura_dark.base: ~/.config/zathura/zathura_dark.base
+
+    # other config files
     ~/.config/bspwm: config/bspwm
     ~/.config/cron: config/cron
     ~/.config/dunst: config/dunst
@@ -116,18 +139,18 @@
     ~/.config/tmux: config/tmux
     ~/.config/urlscan: config/urlscan
     ~/.config/vifm: config/vifm
-    ~/.config/wal/templates/:
-      glob: true
-      path: config/wal/templates/*
     ~/.config/wal_steam: config/wal_steam
     ~/.config/Xresources: config/Xresources
-    ~/.config/zathura: config/zathura
-    ~/.config/wal/templates/zathura_light.base: ~/.config/zathura/zathura_light.base
-    ~/.config/wal/templates/zathura_dark.base: ~/.config/zathura/zathura_dark.base
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/pylintrc: config/pylintrc
     ~/.config/pythonstartup.py: config/pythonstartup.py
     ~/.config/user-dirs.dirs: config/user-dirs.dirs
+
+    # safe stuff
+    ~/.config/mutt/aliases: ~/cld/Dropbox/home/config/mutt/aliases
+    ~/.config/oauth2token/isync: ~/cld/Dropbox/home/config/oauth2token/isync
+    ~/.config/qutebrowser/bookmarks: ~/cld/Dropbox/home/config/qutebrowser/bookmarks
+    ~/.config/qutebrowser/quickmarks: ~/cld/Dropbox/home/config/qutebrowser/quickmarks
 
 - shell:
   - ["fc-cache -vf ~/.local/share/fonts", Installing fonts]
