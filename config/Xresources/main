@@ -1,6 +1,6 @@
 ! font
 #define FONT_NAME Hack
-#define FONT_SIZE 12
+#define FONT_SIZE 11
 
 #define SYMBOL_FONT_NAME Font Awesome 5 Free Solid
 #define SYMBOL_FONT_SIZE 9

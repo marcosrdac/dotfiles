@@ -21,7 +21,7 @@ FormatEntry = "{Title} - {UserName}"
 #ArgsField =
 
 [database]
-Database = "/home/marcosrdac/.config/keepassx/marcosrdac.kdbx"
+Database = "/home/marcosrdac/dox/psn/crd/psw/crd.kdbx"
 #KeyFile =
 #Password =
 FieldOrder = "Password UserName URL"
