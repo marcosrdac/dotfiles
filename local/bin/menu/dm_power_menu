@@ -9,6 +9,6 @@ case "$chosen" in
   lock)       i3lock --color "$background" ;;
   suspend)    systemctl suspend ;;
   logout)     bspc quit ;;
-  reboot)     reboot ;;
+  reboot)     shutdown -r now ;;
   shutdown)   shutdown -h now ;;
 esac
