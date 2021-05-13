@@ -57,7 +57,7 @@ mkxprt XDG_PUBLICSHARE_DIR "$HOME/pub"              # XDG
 mkxprt XDG_TEMPLATES_DIR "$XDG_RESOURCES_DIR/tpt"   # XDG
 mkxprt XDG_VIDEOS_DIR "$HOME/vid"                   # XDG
 mkxprt XDG_DOWNLOAD_DIR "$XDG_TMP_DIR/tmp"          # XDG
-mkxprt XDG_DESKTOP_DIR "$XDG_TMP_DIR/desktop"       # XDG
+mkxprt XDG_DESKTOP_DIR "$XDG_TMP_DIR/tmp"           # XDG
 mkxprt XDG_SCREENSHOTS_DIR "$XDG_PICTURES_DIR/scr"  # custom
 mkxprt XDG_MAIL_DIR "$XDG_DATA_HOME/mail"           # custom
 

@@ -11,7 +11,8 @@ zstyle ':vcs_info:git:*' formats "%{$fg_bold[magenta]%}%b<%r%f"
 zstyle ':vcs_info:*' enable git
 
 # History in cache directory
-#HISTFILE="$XDG_CACHE_HOME/zsh/history"
+#HISTFILE="$XDG_CACHE_HOME/terminal/zsh_history"
+#HISTFILE="$XDG_CACHE_HOME/terminal/history"
 #HISTSIZE="10000000000"
 SAVEHIST="10000000000"
 HISTCONTROL=ignorespace
