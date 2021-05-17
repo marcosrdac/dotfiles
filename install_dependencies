@@ -1,5 +1,10 @@
 #!/bin/sh
 
+INSTALL_TABLET=true
+
+ARCH=
+AUR=
+
 # wget, curl, git
 ARCH="$ARCH wget curl git"
 
@@ -47,7 +52,8 @@ AUR="$AUR yay -Syu tremc"
 ARCH="$ARCH neomutt urlscan"
 
 # window manager
-ARCH="$ARCH bspwm polybar yad networkmanager-dmenu"
+ARCH="$ARCH bspwm yad"
+AUR="$AUR polybar networkmanager-dmenu"
 ARCH="$ARCH compton sox unclutter redshift scrot acpi brightnessctl mpv"
 
 # e-reader
@@ -69,10 +75,11 @@ AUR="$AUR pywal"
 ARCH="$ARCH youtube-dl"
 
 # wacom tablet
-ARCH="$ARCH xf86-input-wacom kcm-wacomtablet"
+$INSTALL_TABLET &&
+  ARCH="$ARCH xf86-input-wacom kcm-wacomtablet"
 
 # clounds
-ARCH="$ARCH dropbox dropbox-cli"
+AUR="$AUR dropbox dropbox-cli"
 
 # security
 AUR="$AUR keepassx2 keepmenu"
@@ -83,23 +90,24 @@ ARCH="$ARCH lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings"
 AUR="$AUR xinit-xsession"
 
 
-# actually installing
-
-echo sudo pacman -Syu $ARCH
+# actually installing stuff
 
 # aur managar
 if ! `which yay 1>/dev/null 2>&1`
 then
+  sudo pacman -Syu --needed --noconfirm git
   HERE="$PWD"
   cd /tmp
   git clone https://aur.archlinux.org/yay.git
   cd yay
   makepkg -si
-  rm -rf yay
   cd "$HERE"
 fi
 
-echo yay -Syu $AUR
+sudo pacman -Syu --needed --noconfirm $ARCH
+set $AUR
+#yay -S --sudoloop --noconfirm $package
 
-# pulse
+
+# enabling pulse in current session
 pulseaudio --start
