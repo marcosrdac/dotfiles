@@ -1,90 +1,105 @@
 #!/bin/sh
 
 # wget, curl, git
-sudo pacman -Syu wget curl git
+ARCH="$ARCH wget curl git"
 
 # compression
-zip unzip unrar
-
-# yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-rm -rf yay
+ARCH="$ARCH zip unzip unrar"
 
 # ssh client
-openssh
+ARCH="$ARCH openssh"
 
 # zsh
-sudo pacman -Syu zsh zsh-syntax-highlighting
+ARCH="$ARCH zsh zsh-syntax-highlighting"
 
 # X
-sudo pacman -Syu xorg xorg-server xorg-xinit xorg-apps
+ARCH="$ARCH xorg xorg-server xorg-xinit xorg-apps"
 
 # clipboard
-xclip xsel xdotool
+ARCH="$ARCH xclip xsel xdotool"
 
 # notification
-sudo pacman -Syu libnotify dunst
+ARCH="$ARCH libnotify dunst"
 
 # wallpaper setting
-sudo pacman -Syu xwallpaper
+ARCH="$ARCH xwallpaper"
 
 # alsa and pulse
-sudo pacman -Syu alsa alsa-utils alsa-tools pulseaudio-alsa pavucontrol
-yay -Syu pulseaudio pamixer
-pulseaudio --start
+ARCH="$ARCH alsa alsa-utils alsa-tools pulseaudio-alsa pavucontrol"
+AUR="$AUR pulseaudio pamixer"
 
 # mounting drives
-sudo pacman -Syu udevil
+ARCH="$ARCH udevil"
 
 # file manager
-sudo pacman -Syu thunar
-yay -Syu lf
+ARCH="$ARCH thunar"
+AUR="$AUR lf"
 
 # browsers
-sudo pacman -Syu qutebrowser firefox
+ARCH="$ARCH qutebrowser firefox"
 
 # torrent
-sudo pacman -Syu transmission-cli
+ARCH="$ARCH transmission-cli"
 # torrent visualizer
-yay -Syu tremc
+AUR="$AUR yay -Syu tremc"
 
 # mail
-neomutt urlscan
+ARCH="$ARCH neomutt urlscan"
 
 # window manager
-sudo pacman -Syu bspwm polybar yad networkmanager-dmenu
-sudo pacman -Syu compton sox unclutter redshift scrot acpi brightnessctl mpv
+ARCH="$ARCH bspwm polybar yad networkmanager-dmenu"
+ARCH="$ARCH compton sox unclutter redshift scrot acpi brightnessctl mpv"
 
 # e-reader
-zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
+ARCH="$ARCH zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps"
 
 # screenshot
-scrot
+ARCH="$ARCH scrot"
 
 # making mouse cursor disappear
-unclutter
+ARCH="$ARCH unclutter"
 
 # mpd
-sudo pacman -Syu mpd mpc ncmpcpp
+ARCH="$ARCH mpd mpc ncmpcpp"
 
 # theming
-yay -Syu pywal
+AUR="$AUR pywal"
 
 # youtube-dl
-youtube-dl
+ARCH="$ARCH youtube-dl"
 
 # wacom tablet
-xf86-input-wacom kcm-wacomtablet
+ARCH="$ARCH xf86-input-wacom kcm-wacomtablet"
 
 # clounds
-dropbox dropbox-cli
+ARCH="$ARCH dropbox dropbox-cli"
 
 # security
-yay -Syu keepassx2 keepmenu
+AUR="$AUR keepassx2 keepmenu"
 
 # lightdm
-sudo pacman -Syu lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+ARCH="$ARCH lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings"
 # xinit-xsession for using xinit from lightdm
-yay -Syu xinit-xsession
+AUR="$AUR xinit-xsession"
+
+
+# actually installing
+
+echo sudo pacman -Syu $ARCH
+
+# aur managar
+if ! `which yay 1>/dev/null 2>&1`
+then
+  HERE="$PWD"
+  cd /tmp
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  rm -rf yay
+  cd "$HERE"
+fi
+
+echo yay -Syu $AUR
+
+# pulse
+pulseaudio --start
