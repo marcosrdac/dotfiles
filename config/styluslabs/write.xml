@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<map>
+  <int name="applyPenToSel" value="1" />
+  <int name="autoHideClippings" value="1" />
+  <int name="growDown" value="0" />
+  <int name="inputSimplify" value="20" />
+  <int name="lastUpdateCheck" value="1620919866" />
+  <int name="mouseMode" value="1" />
+  <int name="penButtonMode" value="13" />
+  <int name="penType" value="11" />
+  <int name="ruleColor" value="2130706432" />
+  <int name="showAdvPrefs" value="1" />
+  <int name="singleTouchMode" value="1" />
+  <int name="splitLayout" value="2" />
+  <int name="strokeCounter" value="3014" />
+  <float name="marginLeft" value="80" />
+  <float name="pageHeight" value="1755" />
+  <float name="pageWidth" value="1240" />
+  <float name="xRuling" value="40" />
+  <string name="clippingDoc" value="/home/marcosrdac/.config/styluslabs/saved/clippings.html" />
+  <string name="currFolder" value="/home/marcosrdac/" />
+  <string name="docFileExt" value="svgz" />
+  <string name="newDocTitleFmt" value="%b %e %Hh%M" />
+  <string name="recentDocs" value="/home/marcosrdac/basin.svgz:::/home/marcosrdac/teste_bruno.svgz:::/home/marcosrdac/linear_algebra.svgz:::/home/marcosrdac/vlf.svgz:::/home/marcosrdac/lista_rodovias.svgz:::/home/marcosrdac/la.svgz:::/home/marcosrdac/lista_ambientes_submersos.svgz:::/home/marcosrdac/permissions.svgz:::/home/marcosrdac/dox/pro/bfp/bfp_rnn_awm_fwi.svgz:::/home/marcosrdac/bfp_rnn_awm_fwi.svgz:::/home/marcosrdac/20210504_geofisica_petroleo.svgz" />
+  <string name="savedColors" value="#FF000000,#FFFF0000,#FF008000,#FF0000FF" />
+  <string name="savedWidths" value="1.400,2.400,4.000,8.000" />
+  <string name="toolBars2" value="docTitle,stretch,actionSave,separator,tools,separator,undoRedoBtn,separator,seltools,separator,actionShow_Bookmarks,actionShow_Clippings,actionSplitView,separator,actionOverflow_Menu" />
+  <string name="toolModes" value="16 34 27 22" />
+  <string name="windowState" value="22 44 1316 696 0 0" />
+  <pen color="4278190080" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="512" />
+  <pen color="4278190335" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="512" />
+  <pen color="4278222848" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="512" />
+  <pen color="4294901760" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="512" />
+  <pen color="3405840383" width="25" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="513" />
+  <pen color="4278190080" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="0" gap="0" flags="516" />
+  <pen color="4278190080" width="2.5" wRatio="0" pressure="0" speed="0" direction="0" dash="10" gap="0" flags="516" />
+  <pen color="4278190080" width="6" wRatio="1" pressure="1" speed="0" direction="0" dash="0" gap="0" flags="528" />
+</map>

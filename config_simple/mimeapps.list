@@ -34,3 +34,4 @@ application/zip=text.desktop;
 x-scheme-handler/msteams=teams.desktop;
 application/x-subrip=aegisub.desktop;
 application/gzip=handwritten.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=office.desktop;

@@ -3,11 +3,11 @@
 Here are the configuration files for my Arch Linux build. I save this directory in "~/.dotfiles" and, when installing Arch to a new system, I just clone the repository and run the installation script after having my dependencies installed (see Dependencies section).
 
 ```shell
-git clone https://github.com/marcosrdac/dotfiles $HOME/.dotfiles
+git clone https://github.com/marcosrdac/dotfiles ~/.dotfiles
 # or, via SSH
-git clone git@github.com:marcosrdac/dotfiles.git $HOME/.dotfiles
+git clone git@github.com:marcosrdac/dotfiles.git ~/.dotfiles
 
-cd $HOME/.dotfiles
+cd ~/.dotfiles
 ./install
 ```
 
@@ -90,6 +90,8 @@ zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
 transmission-cli
 # lightdm: needed for using teamviewer
 lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+# wacom tablet
+xf86-input-wacom kcm-wacomtablet
 ```
 
 

@@ -16,13 +16,13 @@
 
 - link:
     # home stuff
+    ~/.profile: home/.profile
     ~/.bashrc: home/.bashrc
     ~/.bash_profile: home/.bash_profile
     ~/.dmrc: home/.dmrc
     ~/.mailcap: home/.mailcap
     ~/.xinitrc: home/.xinitrc
     #~/.nvidia-xinitrc: home/.nvidia-xinitrc
-    ~/.profile: home/.profile
     ~/.xprofile: home/.xprofile
     ~/.xsession: home/.xsession
     ~/.zshenv: home/.zshenv
@@ -52,6 +52,11 @@
     ~/.local/share/applications/:
       glob: true
       path: share/applications/*
+
+    ## common configs
+    ~/.config/:
+      glob: true
+      path: config_simple/*
 
     # special configs
     ## mutt
@@ -96,52 +101,12 @@
     ~/.config/wal/templates/:
       glob: true
       path: config/wal/templates/*
-
-    ## zathura
-    ~/.config/zathura: config/zathura
+    # wal templates
+    ~/.config/wal/templates/dunstrc.base: ~/.config/dunst/dunstrc.base
+    ~/.config/wal/templates/config.ini.base: ~/.config/keepmenu/config.ini.base
+    ~/.config/wal/templates/mpv.conf.base: ~/.config/mpv/mpv.conf.base
     ~/.config/wal/templates/zathura_light.base: ~/.config/zathura/zathura_light.base
     ~/.config/wal/templates/zathura_dark.base: ~/.config/zathura/zathura_dark.base
-
-    # other config files
-    ~/.config/bspwm: config/bspwm
-    ~/.config/cron: config/cron
-    ~/.config/dunst: config/dunst
-    ~/.config/wal/templates/dunstrc.base: ~/.config/dunst/dunstrc.base
-    ~/.config/htop: config/htop
-    ~/.config/isync: config/isync
-    ~/.config/keepmenu: config/keepmenu
-    ~/.config/wal/templates/config.ini.base: ~/.config/keepmenu/config.ini.base
-    ~/.config/kpmenu: config/kpmenu
-    ~/.config/lf: config/lf
-    ~/.config/LibreCAD: config/LibreCAD
-    ~/.config/matplotlib: config/matplotlib
-    ~/.config/mpd: config/mpd
-    ~/.config/mpv: config/mpv
-    ~/.config/wal/templates/mpv.conf.base: ~/.config/mpv/mpv.conf.base
-    ~/.config/msmtp: config/msmtp
-    ~/.config/ncmpcpp: config/ncmpcpp
-    ~/.config/neofetch: config/neofetch
-    ~/.config/networkmanager-dmenu: config/networkmanager-dmenu
-    ~/.config/newsboat: config/newsboat
-    ~/.config/nvim: config/nvim
-    ~/.config/picom: config/picom
-    ~/.config/podcast2playlist: config/podcast2playlist
-    ~/.config/polybar: config/polybar
-    ~/.config/rofi: config/rofi
-    ~/.config/schemegen: config/schemegen
-    ~/.config/stardict: config/stardict
-    ~/.config/sxhkd: config/sxhkd
-    ~/.config/sxiv: config/sxiv
-    ~/.config/task: config/task
-    ~/.config/tmux: config/tmux
-    ~/.config/urlscan: config/urlscan
-    ~/.config/vifm: config/vifm
-    ~/.config/wal_steam: config/wal_steam
-    ~/.config/Xresources: config/Xresources
-    ~/.config/mimeapps.list: config/mimeapps.list
-    ~/.config/pylintrc: config/pylintrc
-    ~/.config/pythonstartup.py: config/pythonstartup.py
-    ~/.config/user-dirs.dirs: config/user-dirs.dirs
 
     # safe stuff
     ~/.config/mutt/aliases: ~/cld/Dropbox/home/config/mutt/aliases

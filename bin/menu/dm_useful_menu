@@ -1,17 +1,42 @@
 #!/bin/sh
 
-chosen=$(dm_choose "system menu" 'set international keyboard' 'set brazilian keyboard' 'restart bspwm' 'reload sxhkd' 'restart polybar' 'source .Xresources')
+us_kbd='set international keyboard'
+br_kbd='set brazilian keyboard'  
+rotate_tablet='rotate tablet' 
+restart_bspwm='restart bspwm' 
+restart_sxhkd='reload sxhkd' 
+restart_polybar='restart polybar' 
+source_profile='source profile'
+source_xresources='source Xresources'
+
+
+chosen=$(dm_choose "system menu" "$us_kbd" "$br_kbd" "$rotate_tablet" "$restart_bspwm" "$restart_sxhkd" "$restart_polybar" "$source_profile" "$source_xresources")
 
 case "$chosen" in
-  "set international keyboard")
+  "$us_kbd")
     xdotool key Caps_Lock
-    setxkbmap -layout us -variant intl -option caps:swapescape ;;
-  "set brazilian keyboard")
+    setxkbmap -layout us -variant intl -option caps:swapescape
+    ;;
+  "$br_kbd")
     xdotool key Caps_Lock
-    setxkbmap -layout br -option caps:swapescape ;;
-  "restart bspwm")      bspc wm -r ;;
-  "reload sxhkd")       kill -USR1 $(pidof sxhkd) ;;
-  "restart polybar")    polybar-msg cmd restart ;;
-  "source .xprofile")   sh .xprofile ;;
-  "source .Xresources") source .xprofile ;;
+    setxkbmap -layout br -option caps:swapescape
+    ;;
+  "$rotate_tablet")
+    wacom_rotate
+    ;;
+  "$restart_bspwm")
+    bspc wm -r
+    ;;
+  "$restart_sxhkd")
+    kill -USR1 `pidof sxhkd`
+    ;;
+  "$restart_polybar")
+    polybar-msg cmd restart
+    ;;
+  "$source_profile")
+    . $HOME/.profile
+    ;;
+  "$source_xresources")
+    xrdb -merge $XRESOURCES
+    ;;
 esac

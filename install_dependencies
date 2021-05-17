@@ -1,1 +1,90 @@
 #!/bin/sh
+
+# wget, curl, git
+sudo pacman -Syu wget curl git
+
+# compression
+zip unzip unrar
+
+# yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+rm -rf yay
+
+# ssh client
+openssh
+
+# zsh
+sudo pacman -Syu zsh zsh-syntax-highlighting
+
+# X
+sudo pacman -Syu xorg xorg-server xorg-xinit xorg-apps
+
+# clipboard
+xclip xsel xdotool
+
+# notification
+sudo pacman -Syu libnotify dunst
+
+# wallpaper setting
+sudo pacman -Syu xwallpaper
+
+# alsa and pulse
+sudo pacman -Syu alsa alsa-utils alsa-tools pulseaudio-alsa pavucontrol
+yay -Syu pulseaudio pamixer
+pulseaudio --start
+
+# mounting drives
+sudo pacman -Syu udevil
+
+# file manager
+sudo pacman -Syu thunar
+yay -Syu lf
+
+# browsers
+sudo pacman -Syu qutebrowser firefox
+
+# torrent
+sudo pacman -Syu transmission-cli
+# torrent visualizer
+yay -Syu tremc
+
+# mail
+neomutt urlscan
+
+# window manager
+sudo pacman -Syu bspwm polybar yad networkmanager-dmenu
+sudo pacman -Syu compton sox unclutter redshift scrot acpi brightnessctl mpv
+
+# e-reader
+zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps
+
+# screenshot
+scrot
+
+# making mouse cursor disappear
+unclutter
+
+# mpd
+sudo pacman -Syu mpd mpc ncmpcpp
+
+# theming
+yay -Syu pywal
+
+# youtube-dl
+youtube-dl
+
+# wacom tablet
+xf86-input-wacom kcm-wacomtablet
+
+# clounds
+dropbox dropbox-cli
+
+# security
+yay -Syu keepassx2 keepmenu
+
+# lightdm
+sudo pacman -Syu lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
+# xinit-xsession for using xinit from lightdm
+yay -Syu xinit-xsession
