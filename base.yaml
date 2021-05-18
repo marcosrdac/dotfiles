@@ -61,6 +61,11 @@
     # special configs
     ## mutt
     ~/.config/mutt/muttrc: config/mutt/muttrc
+
+    ## nvim
+    ~/.config/nvim/:
+        glob: true
+        path: config/nvim/*
     ## vim
     #~/.config/vim/vimrc: config/nvim/init.vim
     ~/.config/vim/init.vim: config/nvim/init.vim
