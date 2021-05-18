@@ -2,6 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "config/nvim"]
-	path = config_simple/nvim
-	url = https://github.com/marcosrdac/nvim
