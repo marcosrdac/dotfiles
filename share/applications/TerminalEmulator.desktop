@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal Emulator
+Exec=/usr/bin/env st -e %u
