@@ -49,13 +49,20 @@ mkxprt XDG_RUNTIME_DIR "/run/user/$UID"             # XDG
 mkxprt XDG_RESOURCES_DIR "$HOME/res"                # custom
 mkxprt XDG_WALLPAPER_DIR "$XDG_RESOURCES_DIR/wal"   # custom
 mkxprt XDG_TMP_DIR "$HOME/tmp"                      # custom
-mkxprt XDG_DOCUMENTS_DIR "$HOME/dox"                # XDG
-mkxprt XDG_MUSIC_DIR "$HOME/mus"                    # XDG
-mkxprt XDG_PICTURES_DIR "$HOME/pix"                 # XDG
-mkxprt XDG_PROJECTS_DIR "$HOME/pro"                 # custom
-mkxprt XDG_PUBLICSHARE_DIR "$HOME/pub"              # XDG
-mkxprt XDG_TEMPLATES_DIR "$XDG_RESOURCES_DIR/tpt"   # XDG
-mkxprt XDG_VIDEOS_DIR "$HOME/vid"                   # XDG
+#mkxprt XDG_DOCUMENTS_DIR "$HOME/dox"                # XDG
+#mkxprt XDG_MUSIC_DIR "$HOME/mus"                    # XDG
+#mkxprt XDG_PICTURES_DIR "$HOME/pix"                 # XDG
+#mkxprt XDG_PROJECTS_DIR "$HOME/pro"                 # custom
+#mkxprt XDG_PUBLICSHARE_DIR "$HOME/pub"              # XDG
+#mkxprt XDG_TEMPLATES_DIR "$XDG_RESOURCES_DIR/tpt"   # XDG
+#mkxprt XDG_VIDEOS_DIR "$HOME/vid"                   # XDG
+export XDG_DOCUMENTS_DIR="$HOME/dox"                # XDG
+export XDG_MUSIC_DIR="$HOME/mus"                    # XDG
+export XDG_PICTURES_DIR="$HOME/pix"                 # XDG
+export XDG_PROJECTS_DIR="$HOME/pro"                 # custom
+export XDG_PUBLICSHARE_DIR="$HOME/pub"              # XDG
+export XDG_TEMPLATES_DIR="$XDG_RESOURCES_DIR/tpt"   # XDG
+export XDG_VIDEOS_DIR="$HOME/vid"                   # XDG
 mkxprt XDG_DOWNLOAD_DIR "$XDG_TMP_DIR/tmp"          # XDG
 mkxprt XDG_DESKTOP_DIR "$XDG_TMP_DIR/tmp"           # XDG
 mkxprt XDG_SCREENSHOTS_DIR "$XDG_PICTURES_DIR/scr"  # custom
