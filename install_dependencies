@@ -39,6 +39,7 @@ ARCH="$ARCH udevil"
 # file manager
 ARCH="$ARCH thunar"
 AUR="$AUR lf"
+ARCH="$ARCH fzy"
 
 # browsers
 ARCH="$ARCH qutebrowser firefox"

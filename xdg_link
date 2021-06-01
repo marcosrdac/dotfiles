@@ -1,0 +1,14 @@
+#!/bin/sh
+
+SOURCE_DIR="$HOME/cld/Dropbox/home"
+SOURCE_NAMES="dox pix pro res"
+
+for name in $SOURCE_NAMES
+do
+  source_path="$SOURCE_DIR/$name"
+  link_path="$HOME/$name"
+  
+  [ -L "$link_path" ] || mv -b "$link_path" "$link_path.bak"
+
+  ln -snf "$source_path" "$link_path"
+done

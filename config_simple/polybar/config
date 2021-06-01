@@ -46,7 +46,7 @@ modules-left   = bspwm xkeyboard
 modules-center = mpd
 modules-right  = remainder recording wlan eth pulseaudio brightness battery timer date time
 ; tray position
-tray-position   = left
+tray-position   = right
 tray-padding    = 2
 tray-background = ${colors.background}
 

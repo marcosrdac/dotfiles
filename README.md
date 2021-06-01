@@ -44,3 +44,7 @@ There are programs that I need Installed in order for my configs to work correct
 ```sh
 ./install_dependencies
 ```
+
+## To do
+
+- [ ] [rename applications](https://developer.gnome.org/menu-spec/)
