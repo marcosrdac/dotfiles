@@ -46,7 +46,7 @@ ARCH="$ARCH qutebrowser firefox"
 # torrent
 ARCH="$ARCH transmission-cli"
 # torrent visualizer
-AUR="$AUR yay -Syu tremc"
+AUR="$AUR yay tremc"
 
 # mail
 ARCH="$ARCH neomutt urlscan"
@@ -105,8 +105,7 @@ then
 fi
 
 sudo pacman -Syu --needed --noconfirm $ARCH
-set $AUR
-#yay -S --sudoloop --noconfirm $package
+yay -S --sudoloop --needed --noconfirm $AUR
 
 
 # enabling pulse in current session

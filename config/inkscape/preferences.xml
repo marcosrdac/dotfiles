@@ -133,10 +133,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="1088.96"
-         height="795.715"
+         width="183.783"
+         height="60.3421"
          rx="0"
-         ry="0" />
+         ry="30.171" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -173,8 +173,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="155.426"
-         ry="82.2465"
+         rx="2343.39"
+         ry="3249.77"
          open="1"
          arc_type="0" />
       <eventcontext
@@ -345,7 +345,7 @@
        font_sample="AaBbCcIiPpQq12369$€¢?.;/()"
        show_sample_in_list="1"
        use_svg2="1"
-       style="font-family:sans-serif;font-size:24px;line-height:0;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:sans-serif"
+       style="font-family:sans-serif;font-size:65px;line-height:0;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:sans-serif"
        selcue="1"
        align_mode="1">
       <group
@@ -367,8 +367,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="137.5"
-       y="204.5"
+       x="215.936"
+       y="419.118"
        edit_clipping_paths="1"
        edit_masks="1"
        highlight_color="4278190335" />
@@ -595,14 +595,14 @@
        panel_mode="1"
        panel_wrap="0"
        panel_border="0"
-       page="0"
+       page="2"
        x="0"
        y="0"
-       w="316"
-       h="454"
+       w="327"
+       h="436"
        visible="0"
        state="2"
-       placement="1" />
+       placement="5" />
     <group
        id="filtereffects" />
     <group
@@ -631,8 +631,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="312"
-       h="348"
+       w="327"
+       h="340"
        visible="0"
        state="2"
        placement="5"
@@ -674,8 +674,8 @@
        panel_border="0"
        x="0"
        y="0"
-       w="556"
-       h="587"
+       w="619"
+       h="564"
        visible="0"
        placement="5" />
     <group
@@ -699,8 +699,11 @@
        id="object"
        x="0"
        y="0"
-       w="278"
-       h="308" />
+       w="292"
+       h="290"
+       visible="0"
+       state="2"
+       placement="2" />
     <group
        id="export"
        default=""
@@ -723,14 +726,14 @@
          value="page" />
       <group
          id="defaultxdpi"
-         value="300" />
+         value="600" />
     </group>
     <group
        id="save_as"
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/marcosrdac"
+       path="/home/marcosrdac/pro/los/remote_sensing/pix"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -741,7 +744,7 @@
     <group
        id="open"
        enable_preview="0"
-       path="/home/marcosrdac/pro/student_chapter/logo/" />
+       path="/home/marcosrdac/pro/los/remote_sensing/pix/" />
     <group
        id="import"
        enable_preview="1"
@@ -812,11 +815,11 @@
        panel_border="0"
        x="0"
        y="0"
-       w="312"
-       h="51"
-       visible="0"
+       w="58"
+       h="64"
+       visible="1"
        state="2"
-       placement="5" />
+       placement="1" />
     <group
        id="iconpreview" />
     <group
@@ -911,17 +914,20 @@
        id="paint"
        x="0"
        y="0"
-       w="312"
-       h="400" />
+       w="211"
+       h="103"
+       visible="0"
+       state="2"
+       placement="1" />
     <group
        id="objectattr"
        y="0"
-       w="226"
-       h="195"
+       w="229"
+       h="185"
        x="0"
        visible="0"
        state="2"
-       placement="1">
+       placement="2">
       <group
          id=""
          x="0" />
@@ -1293,7 +1299,7 @@
      org.inkscape.effect.filter.Electrize.type="table"
      org.ekips.filter.interp.dup="0"
      org.ekips.filter.interp.method="1"
-     org.ekips.filter.interp.steps="22"
+     org.ekips.filter.interp.steps="40"
      org.greygreen.inkscape.effects.extrude.mode="Lines"
      org.inkscape.input.svg.scale="optimizeSpeed"
      org.inkscape.input.svg.import_mode_svg="link"
@@ -1316,12 +1322,12 @@
      org.inkscape.input.gdkpixbuf.jpeg.link="link" />
   <group
      id="desktop"
-     style="line-height:2;font-size:48px;-inkscape-font-specification:'Share Bold';font-family:Share;text-decoration:none;text-decoration-color:#000000;stop-color:#000000;fill:#955a14;letter-spacing:0px;word-spacing:0px;stroke-width:1.8897599;text-align:center;text-anchor:middle;font-weight:bold;stroke-linejoin:round;stroke:#ff0000"
+     style="line-height:2;font-size:70px;-inkscape-font-specification:sans-serif;font-family:sans-serif;text-decoration:none;text-decoration-color:#000000;stop-color:#000000;letter-spacing:0px;word-spacing:0px;stroke-width:1.88976378;text-align:center;text-anchor:middle;fill-rule:evenodd;fill:#000000;stroke-linecap:square;stroke:#000000"
      xrayactive="0">
     <group
-       width="510"
+       width="188"
        height="696"
-       x="828"
+       x="1150"
        y="44"
        fullscreen="0"
        id="geometry"

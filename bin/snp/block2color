@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#MAX=`echo '40*40' | bc`
+#MAX=22
+MAX=$1
+
+sleep 3
+
+xdotool key d
+count=0
+while [ "$count" -lt "$MAX" ]
+do
+  #echo $count
+  xdotool mousemove 600 400
+  sleep .15
+  xdotool mousemove 710 400
+  sleep .05
+  xdotool mousemove 720 400
+  sleep .05
+  xdotool click 1
+  xdotool key Tab
+  count=$((count+1))
+done

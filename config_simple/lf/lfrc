@@ -24,13 +24,13 @@ set scrolloff 8
 set icons true
 # ignore case
 set ignorecase true
-# custom previewer script to be used
-#set previewer ""
 # numbering files
 set number
 set relativenumber
 # set previewer script
-set previewer "~/.local/bin/file_managing/preview"
+#set previewer "~/.local/bin/file_managing/preview"
+set previewer "~/.config/lf/lfimg/preview"
+set cleaner "~/.config/lf/lfimg/cleaner"
 
 
 # Unmap the default mappings

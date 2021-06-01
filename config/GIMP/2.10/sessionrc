@@ -16,7 +16,7 @@
     (open-on-exit)
     (aux-info
         (left-docks-width "75")
-        (right-docks-width "281")
+        (right-docks-width "378")
         (maximized "no"))
     (gimp-toolbox
         (side left))
@@ -54,14 +54,14 @@
                 (aux-info
                     (show-button-bar "true")
                     (edit-active "true")
-                    (current-data "FG to BG (HSV clockwise hue)")))
+                    (current-data "FG to BG (RGB)")))
             (dockable "gimp-histogram-editor"
                 (tab-style automatic))
             (dockable "gimp-brush-editor"
                 (tab-style automatic)
                 (aux-info
                     (edit-active "true")
-                    (current-data "2. Hardness 075")))
+                    (current-data "2. Hardness 050")))
             (dockable "gimp-brush-grid"
                 (tab-style preview)
                 (aux-info
@@ -79,7 +79,7 @@
                 (aux-info
                     (show-button-bar "true")
                     (edit-active "true")
-                    (current-data "Op2")))
+                    (current-data "Color History")))
             (dockable "gimp-indexed-palette"
                 (tab-style automatic)
                 (aux-info
@@ -88,13 +88,13 @@
                 (tab-style automatic)
                 (aux-info
                     (edit-active "true")
-                    (current-data "Pressure Size")))
+                    (current-data "Dynamics Off")))
             (dockable "gimp-color-editor"
                 (tab-style preview)
                 (aux-info
-                    (current-page "GimpColorSelect"))))
+                    (current-page "GimpColorScales"))))
         (book
-            (position 452)
+            (position 486)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style icon)
@@ -130,7 +130,7 @@
     (size 1340 720))
 (session-info "toplevel"
     (factory-entry "gimp-image-new-dialog")
-    (position 489 249))
+    (position 414 242))
 (session-info "toplevel"
     (factory-entry "gimp-color-balance-tool-dialog")
     (position 0 0))
@@ -200,7 +200,7 @@
     (position 489 249))
 (session-info "toplevel"
     (factory-entry "gimp-file-open-location-dialog")
-    (position 452 319))
+    (position 452 316))
 (session-info "toplevel"
     (factory-entry "gimp-action-search-dialog")
     (position 600 356)
