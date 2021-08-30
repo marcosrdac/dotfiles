@@ -1,0 +1,9 @@
+#!/bin/sh
+
+FIFO="$1"
+DIR="`dirname $FIFO`"
+
+[ -d "$DIR" ] || mkdir -p "$DIR"
+[ -p "$FIFO" ] || mkfifo "$FIFO"
+
+tail -f "$FIFO"

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+SESSION="${XDG_SESSION_TYPE}_${XDG_SESSION_ID}"
+SOFTWARE=waybar
+BARPID=${1:-`ps -o ppid= $$ | awk -F' ' '{print $1}'`}
+
+RUN="${XDG_RUNTIME_DIR:-/tmp}/${SESSION}/${SOFTWARE}/${BARPID}"
+DATEFIFO="$RUN/date.fifo"
+
+[ -d "$RUN" ] || mkdir -p "$RUN"
+[ -p "$DATEFIFO" ] || mkfifo "$DATEFIFO"
+
+# giving date reader a chance to read his fifo
+[ ! -z $1 ] && echo "$DATEFIFO" && exit 0
+
+# running script
+day=-1
+while true
+do
+  now=`date +'%Y%m%d%H%M%S'`
+  timenow=`echo $now | cut -c9-`
+  daynow=`echo $now | cut -c7-8`
+  if [ "$day" -ne "$daynow" ]
+  then 
+    day=$daynow
+    datenow=`echo $now | cut -c1-8`
+    (echo "$datenow" > "$DATEFIFO" || kill -SIGTERM $$) &
+  fi
+  echo "$timenow" &
+  sleep 1
+done

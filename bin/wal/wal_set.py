@@ -17,7 +17,10 @@ if BACKEND == 'mine':
     from scheme_generator import gen_wal_scheme
     get_scheme = gen_wal_scheme
 else:
-    get_scheme = lambda path: wal.colors.get(path, backend=BACKEND)
+
+    def get_scheme(path):
+        return wal.colors.get(path, backend=BACKEND)
+
 
 path = wal.image.get(INPUT_PATH)
 scheme = get_scheme(path)

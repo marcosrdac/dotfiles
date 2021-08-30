@@ -1,8 +1,8 @@
 #!/bin/sh
 
 DMENU=${DMENU:-'dmenu'}
-LOGDIR="${XDG_DOCUMENTS_DIR:="$HOME/Documents"}/tmp"
-LOGFILE="$LOGDIR/inbox.md"
+LOGDIR="${XDG_DOCUMENTS_DATA:="$HOME/Documents"}/inbox"
+LOGFILE="$LOGDIR/index.md"
 # making sure paths exist
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
 [ -f $LOGFILE ] || touch $LOGFILE

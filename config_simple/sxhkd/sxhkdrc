@@ -139,7 +139,7 @@ alt + x ; {shift+q,e,r,t,p,u, m}
 	{dm_power_menu, \
 	 emolog, \
 	 dm_recording_menu, \
-	 toinbox, \
+	 dm_to_inbox, \
 	 dm_pomodoro, \
 	 dm_useful_menu, \
 	 $TERMINAL -e unimatrix}
@@ -161,7 +161,7 @@ alt + e ; {s,e,r,t,u,p,l,c,v,b,n}
 	$XDG_CONFIG_HOME/cron/user.cron , \
 	$XDG_CONFIG_HOME/nvim/init.vim , \
 	$XDG_CONFIG_HOME/bspwm/bspwmrc , \
-	-c VimwikiIndex
+	-c 'VimwikiIndex' -c ':lcd %:p:h'
 	}
 
 # call an useful menu

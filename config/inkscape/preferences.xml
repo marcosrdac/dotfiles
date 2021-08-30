@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <inkscape
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   version="1"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1">
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd">
   <group
      id="window">
     <group
@@ -111,11 +111,14 @@
     <sodipodi:namedview
        id="base"
        pagecolor="#ffffff"
-       bordercolor="#666666"
-       borderopacity="1.0"
+       pageopacity="0"
+       pagecheckerboard="0"
+       bordercolor="#999999"
+       borderopacity="1"
        objecttolerance="10.0"
        gridtolerance="10.0"
        guidetolerance="10.0"
+       pageshadow="0"
        inkscape:pageopacity="0.0"
        inkscape:pageshadow="2"
        inkscape:window-width="640"
@@ -133,10 +136,10 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="183.783"
-         height="60.3421"
+         width="65.1005"
+         height="108.325"
          rx="0"
-         ry="30.171" />
+         ry="0" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -173,8 +176,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="2343.39"
-         ry="3249.77"
+         rx="20.2189"
+         ry="24.2832"
          open="1"
          arc_type="0" />
       <eventcontext
@@ -229,6 +232,8 @@
        usepressure="1"
        usetilt="1"
        keep_selected="1"
+       abs_width="1"
+       unit="mm"
        tremor="0"
        wiggle="0"
        selcue="0">
@@ -367,8 +372,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="215.936"
-       y="419.118"
+       x="605.45"
+       y="208.196"
        edit_clipping_paths="1"
        edit_masks="1"
        highlight_color="4278190335" />
@@ -641,11 +646,11 @@
        align-nodes-to="2" />
     <group
        id="xml"
+       h="260"
+       w="320"
        panedpos="144"
        x="0"
        y="0"
-       w="320"
-       h="260"
        visible="0"
        state="2"
        placement="1" />
@@ -726,14 +731,14 @@
          value="page" />
       <group
          id="defaultxdpi"
-         value="600" />
+         value="300" />
     </group>
     <group
        id="save_as"
        default="org.inkscape.output.svg.inkscape"
-       append_extension="1"
+       append_extension="0"
        enable_preview="1"
-       path="/home/marcosrdac/pro/los/remote_sensing/pix"
+       path="/home/marcosrdac/dox/pro/bfp/modelo_meu/pix"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -744,11 +749,11 @@
     <group
        id="open"
        enable_preview="0"
-       path="/home/marcosrdac/pro/los/remote_sensing/pix/" />
+       path="/home/marcosrdac/tmp/los/unet_training/image/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/marcosrdac/tmp/people/everaldo/"
+       path="/home/marcosrdac/dox/pro/bfp/modelo_meu/"
        ask="1"
        ask_svg="1"
        link="link"
@@ -829,6 +834,8 @@
     <group
        id="layers"
        maxDepth="20"
+       w="316"
+       h="442"
        panel_size="1"
        panel_ratio="100"
        panel_mode="1"
@@ -836,8 +843,6 @@
        panel_border="0"
        x="0"
        y="0"
-       w="316"
-       h="442"
        visible="0"
        state="2"
        placement="5" />
@@ -953,7 +958,9 @@
   <group
      id="options"
      yaxisdown="0"
-     onimport="0">
+     onimport="0"
+     dpifixbackup="1"
+     dpiupdatemethod="0">
     <group
        id="renderingcache"
        size="100" />
@@ -1243,6 +1250,13 @@
     <group
        id="middlemousezoom"
        value="1" />
+    <group
+       id="boot"
+       canvas="light">
+      <group
+         id="shown"
+         ver1.1="1" />
+    </group>
   </group>
   <group
      id="extensions"
@@ -1322,16 +1336,16 @@
      org.inkscape.input.gdkpixbuf.jpeg.link="link" />
   <group
      id="desktop"
-     style="line-height:2;font-size:70px;-inkscape-font-specification:sans-serif;font-family:sans-serif;text-decoration:none;text-decoration-color:#000000;stop-color:#000000;letter-spacing:0px;word-spacing:0px;stroke-width:1.88976378;text-align:center;text-anchor:middle;fill-rule:evenodd;fill:#000000;stroke-linecap:square;stroke:#000000"
+     style="line-height:2;font-size:24px;-inkscape-font-specification:C059;font-family:C059;text-decoration:none;text-decoration-color:#000000;stop-color:#000000;letter-spacing:0px;word-spacing:0px;stroke-width:3.77952756;text-align:center;text-anchor:middle;fill-rule:evenodd;fill:#ff2ad4;stroke-linejoin:round"
      xrayactive="0">
     <group
-       width="188"
+       width="295"
        height="696"
-       x="1150"
+       x="505"
        y="44"
-       fullscreen="0"
-       id="geometry"
-       maximized="0" />
+       maximized="0"
+       fullscreen="1"
+       id="geometry" />
     <group
        id="XYfront" />
     <group
@@ -1440,14 +1454,15 @@
      menuIcons_objects="0"
      menuIcons_layers="0"
      menuIcons_canvas="0"
-     iconTheme="flattrcolor-dark"
      gtkTheme="FlatColor"
      defaultIconTheme="flattrcolor-dark"
      defaultTheme="FlatColor"
      id="theme"
      darkTheme="1"
      symbolicIcons="1"
-     menuIcons="-1">
+     menuIcons="-1"
+     defaultPreferDarkTheme="0"
+     defaultGtkTheme="FlatColor">
     <group
        id="flattrcolor-dark"
        symbolicBaseColor="2044905471"
@@ -1468,7 +1483,8 @@
        symbolicErrorColor="4112777471" />
   </group>
   <group
-     id="live_effects">
+     id="live_effects"
+     flattening="0">
     <group
        width="-0.722223"
        id="pap" />

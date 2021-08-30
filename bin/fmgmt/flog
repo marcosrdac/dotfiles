@@ -1,0 +1,59 @@
+#!/usr/bin/env sh
+
+# defining place variables
+LOGDIR="$XDG_RUNTIME_DIR/flog"
+LOGFILE="$LOGDIR/flog.log"
+# making sure files exist
+[ -e $LOGDIR ] || mkdir -p $LOGDIR
+[ -e $LOGFILE ] || touch $LOGFILE
+# log separator
+SEP='	'
+IFS='	'
+
+last_entry_id () {
+  awk -F"$SEP" '$1~/^[0-9]+$/ {w=$1} END{print w}' $LOGFILE
+}
+
+prepare () {
+  saved="$1"
+  shift
+  for arg in "$@"; do saved="$saved$SEP$arg"; done
+  echo "$saved"
+}
+
+log () {
+  id=$((`last_entry_id`+1))
+  echo -e "`prepare "$id" "$@"`" >> "$LOGFILE"
+}
+
+get () {
+  awk -F"$SEP" -v rec="$1" '$1==rec {$4=""; print }' FS="$SEP" OFS="$IFS" "$LOGFILE"
+}
+
+# TODO check if record exists else error
+relog () {
+  [ $# -lt 1 ] && echo "No record id specified" 1>&2 && exit 1
+  [ "$1" = 'last' ] && shift && set -- "`last_entry_id`" "$@"
+  id=$1
+  newlog=`prepare "$@"`
+  sed -i '/^'"${id}${SEP}"'.*/s//'"$newlog"'/' "$LOGFILE"
+}
+
+# TODO check if record exists else error
+delete () {
+  [ $# -lt 1 ] && echo "No record id specified" 1>&2 && exit 1
+  [ "$1" = 'last' ] && id="`last_entry_id`" || id=$1
+  sed -i '/^'"${id}${SEP}"'/d' $LOGFILE
+}
+
+[ -z "$1" ] && echo "No log information given." && exit 1
+case "$1" in
+  -f|--get-logfile) echo "$LOGFILE" ;;
+  -s|--get-separator) echo "$SEP" ;;
+  -p|--show) echo "`<"$LOGFILE"`" ;;
+  -l|--log) shift; log "$@" ;;
+  -r|--relog) shift; relog "$@" ;;
+  -g|--get) shift; get "$@" ;;
+  -d|--delete) shift; delete "$@" ;;
+  -c|--clear) echo -n "" > "$LOGFILE" ;;
+esac

@@ -7,7 +7,7 @@
 set shell bash
 # shell behaviour
 set shellopts '-e'
-# internal filed separator
+# internal field separator
 #set filesep "\r"
 set ifs "\n"
 # find stops when there is only one file left
@@ -60,11 +60,12 @@ map r :recol; reload
 #map f find
 map f fzy
 # use enter to open selected files
+map <backspace2> updir
 map <enter> open
 # use l to open current file
 map l open current
 # opening another lf wiondow inside selected folder
-map L &nohup $TERMINAL -e lf $f >/dev/null & wait $! && sleep .01 && lf -remote "send $id recol";
+map L &nohup $TERMINAL -e $FILEBROWSER $f >/dev/null & wait $! && sleep .01 && lf -remote "send $id recol";
 # dedicated keys for file opener actions
 map e $[ -w "$f" ] || EDITOR='sudoedit'; $EDITOR "$f"
 map E &$TERMINAL -e $EDITOR $f
@@ -258,24 +259,25 @@ cmd vim-rename &{{
 cmd bkrn $bkrn $fs
 
 cmd paste_symlink %{{
-  load=$(lf -remote 'load')
-  mode=$(echo "$load" | sed -n '1p')
-  list=$(echo "$load" | sed '1d')
-  if [ $mode = 'copy' ]
-  then
-    please='' && [ ! -w . ] && please='sudo'
-    for f in $list
-    do
-      $please ln -s "$f" "$(pwd)/$(basename $f)"
-    done
-    lf -remote 'send clear'
-    lf -remote 'send load'
-  fi
+#  SOMEHOW NOT WORKING
+#  load=$(lf -remote 'load')
+#  mode=$(echo "$load" | sed -n '1p')
+#  list=$(echo "$load" | sed '1d')
+#  if [ $mode = 'copy' ]
+#  then
+#    please='' && [ ! -w . ] && please='sudo'
+#    for f in $list
+#    do
+#      $please ln -s "$f" "$(pwd)/$(basename $f)"
+#    done
+#    lf -remote 'send clear'
+#    lf -remote 'send load'
+#  fi
 }}
 
 cmd config ${{
   LFRC=$XDG_CONFIG_HOME/lf/lfrc
-  [ -f $LFRC ] && vim $LFRC || lf -remote $id echoerr no lfrc found.
+  [ -f $LFRC ] && vim $LFRC || lf -remote $id echoerr no lfrc found
 }}
 
 cmd test %{{
@@ -294,82 +296,43 @@ cmd redo %{{
   lf -remote "send redraw"
 }}
 
-cmd paste %{{
-  load=$(lf -remote 'load')
-  mode=$(echo "$load" | sed -n '1p')
-  list=$(echo "$load" | sed '1d')
-  if [ $mode = 'copy' ]; then
-      copy $list .
-  elif [ $mode = 'move' ]; then
-      move $list .
+cmd paste &{{
+  set `<"${XDG_DATA_HOME:=$HOME/.local/share}/lf/files"`
+  mode=$1
+  shift
+  case $mode in
+    copy)
+      copy $@ . ;;
+    move) 
+      lf -remote 'send clear'
+      move $@ . ;;
+    *) exit 1 ;;
+  esac |
+    stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+    while read -r line
+    do
+      lf -remote "send $id echo $line" &
+    done
+
+  if [ $? -ne 0 ]
+  then
+    lf -remote "send $id echoerr An error occured when pasting" &
   fi
+  lf -remote 'send load' &
+}}
+
+cmd trash %{{
+  lf -remote 'send unselect'
+  trash $fx |
+    stdbuf -i0 -o0 -e0 tr '\r' '\n' |
+    while read -r line
+    do
+      lf -remote "send $id echo $line" &
+    done
   lf -remote 'send load'
-  lf -remote 'send clear'
-}}
-
-## pasting done right
-#cmd paste %{{
-#    start_time=$(date +'%s')
-#    load=$(lf -remote 'load')
-#    mode="$(echo "$load" | sed -n '1p')"
-#    load="$(echo "$load" | sed '1d')"
-#    [ -z $load ] && exit 1
-#    srcF=$(mktemp)
-#    echo "$load" > "$srcF"
-#    please='' && [ ! -w . ] && please='sudo'
-#    case "$mode" in
-#        copy) cmd='cp-p'; copying=copying;;
-#        move) cmd='mv-p'; copying=moving;;
-#    esac
-#    cmd="$cmd --new-line --backup=numbered -F"
-#    $please sh -c  "$cmd \"$srcF\" . | while read -r line
-#      do
-#        lf -remote \"send $id echo \$line\"
-#      done &&
-#        lf -remote 'send load' && rm -f \"$srcF\" &"
-#    lf -remote 'send load'
-#    lf -remote 'send clear'
-#    #wait $! && end_time=$(date +'%s')
-#    #interval=$(($(date +'%s')-$start_time))
-#    #[ $interval -gt 6 ] &&
-#    #notify-send "done $copying files" "\"$(<$srcf)\"\nto\n\"$(realpath .)/\""
-#}}
-
-# assynchronous pasting
-cmd paste-async &{{
-    load=$(lf -remote 'load')
-    mode=$(echo "$load" | sed -n '1p')
-    list=$(echo "$load" | sed '1d')
-    if [ $mode = 'copy' ]
-    then
-        cp -rn $list .
-    elif [ $mode = 'move' ]
-    then
-        mv -n $list .
-    fi
-    lf -remote 'send load'
-    lf -remote 'send clear'
-}}
-
-
-# trash-cli commands
-cmd trash &{{
-  for f in $fx
-  do
-    msg=$(trash "$f")
-    [ $? = 0 ] && ECHO=echo || ECHO=echoerr
-    lf -remote "send load"
-    lf -remote "send redraw"
-    lf -remote "send $id $ECHO $msg"
-  done
 }}
 
 cmd restoretrash &{{
-  msg="$(cmdtrash --restore last)"
-  [ $? = 0 ] && ECHO=echo || ECHO=echoerr
-  lf -remote "send load"
-  lf -remote "send redraw"
-  lf -remote "send $id $ECHO $msg"
 }}
 
 cmd emptytrash &{{

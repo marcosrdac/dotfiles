@@ -15,4 +15,7 @@ font=`xrdb -query | awk -F'\t' '$1~/^*font:$/{print $2}'`
 
 # call dmenu with custom settings
 #dmenu -h 18 -y 22 -l 15 ...
-dmenu -i  -b -l 15 -fn "$font" -nb $background -nf $foreground -sb $foreground -sf $background "$@"
+
+#${DMENU:-dmenu} -i  -b -l 15 -fn "$font" -nb $background -nf $foreground -sb $foreground -sf $background "$@"
+${DMENU:-dmenu} -i  -b -l 15 --fn "$font" --nb $background --nf $foreground --sb $foreground --sf $background "$@"
+

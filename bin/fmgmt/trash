@@ -1,0 +1,23 @@
+#!/bin/sh
+
+XDG_DATA_HOME=${XDG_DATA_HOME:-"$HOME/.local/share"}
+TRASH_DIR=${TRASH:-"$XDG_DATA_HOME/Trash"}
+
+ARGS=`getopt -o 'lprcf' --long 'list,put,restore,clean,force' -- "$@"` || exit
+eval "set -- $ARGS"
+while true
+do case $1 in
+  -l|--list) mode=list; shift ;;
+  -p|--put) mode=put; shift ;;
+  -r|--restore) mode=restore; shift ;;
+  -c|--clean) mode=clean; shift ;;
+  -f|--force) force=true; shift ;;
+  --) shift; break ;;
+  *) exit 1 ;;
+esac done
+
+[ $# -lt 1 ] && echo "No sequential arguments given" 1>&2 && exit 1
+
+
+[ -d "$TRASH_DIR" ] || mkdir -p "$TRASH_DIR"
+move -- "$@" "$TRASH_DIR"

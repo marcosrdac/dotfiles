@@ -1,0 +1,40 @@
+#!/bin/sh
+
+NOTIFY_LONGER=3  # s
+
+ARGS=`getopt -o 'f' --long 'force' -- "$@"` || exit
+eval "set -- $ARGS"
+while true
+do case $1 in
+  -f|--force) force=true; shift ;;
+  --) shift; break ;;
+  *) exit 1 ;;
+esac done
+
+[ $# -lt 2 ] && echo "No file arguments given" 1>&2 && exit 1
+
+if [ -z "$force" ]
+then
+  backup="--backup --suffix=.`date +'%Y%m%d%H%M%S%N'`.bak"
+fi
+
+
+time_start=`date +'%s'`
+rsync --info=progress2 --archive $backup -- "$@"
+time_end=`date +'%s'`
+interval=$((time_end-time_start))
+
+if [ $interval -ge $NOTIFY_LONGER ]
+then
+  for path in "$@"
+  do
+    i=$((i+1))
+    if [ $i -eq $# ]
+    then
+      dest=$path
+    fi
+  done
+
+  # last is shown twice...
+  notify-send "Copied [$interval s]" "$*\nto\n$path\n"
+fi

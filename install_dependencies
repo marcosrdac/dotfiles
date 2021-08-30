@@ -8,6 +8,9 @@ AUR=
 # wget, curl, git
 ARCH="$ARCH wget curl git"
 
+# ripgrep
+ARCH="$ARCH ripgrep"
+
 # compression
 ARCH="$ARCH zip unzip unrar"
 

@@ -7,6 +7,7 @@ application/x-bittorrent=torrent.desktop;
 application/pgp-encrypted=text.desktop;
 application/rss+xml=rss.desktop;
 application/pdf=pdf.desktop;
+application/postscript=pdf.desktop;
 application/json=text.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;

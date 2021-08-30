@@ -15,10 +15,19 @@ export TRUEBROWSER="qutebrowser"
 export READER="zathura"
 export XIMAGEVIEWER="sxiv"
 export WEBCAM="/dev/video0"
-export DMENU="menu"
+export DMENU="menu"  # Change to XMENU
+export XMENU="menu"
+export XMENURUN="menu_run"
+export WMENU="wofi --show=dmenu -M fuzzy -e -W '100%'"
+export WMENURUN="wofi --show=run -M fuzzy -e -W '100%'"
+
 export TASK="task"
 export AURMANAGER="yay"
 
+# default keyboard
+export XKB_DEFAULT_LAYOUT='us'
+export XKB_DEFAULT_VARIANT='intl'
+export XKB_DEFAULT_OPTIONS='caps:swapescape'
 
 # user defined variables
 
@@ -29,6 +38,8 @@ export CAMOBI="10.129.64.41"
 mkxprt() {
   if [ "$1" = '-f' ]
     then shift && mkdir -p `dirname "$2"` && touch "$2"
+  elif [ "$1" = '-d' ]
+    then shift && mkdir -p `dirname "$2"`
   else
     mkdir -p "$2"
   fi
@@ -57,6 +68,7 @@ mkxprt XDG_TMP_DIR "$HOME/tmp"                      # custom
 #mkxprt XDG_TEMPLATES_DIR "$XDG_RESOURCES_DIR/tpt"   # XDG
 #mkxprt XDG_VIDEOS_DIR "$HOME/vid"                   # XDG
 export XDG_DOCUMENTS_DIR="$HOME/dox"                # XDG
+export XDG_DOCUMENTS_DATA="$XDG_DOCUMENTS_DIR/h/dat"  # custom
 export XDG_MUSIC_DIR="$HOME/mus"                    # XDG
 export XDG_PICTURES_DIR="$HOME/pix"                 # XDG
 export XDG_PROJECTS_DIR="$HOME/pro"                 # custom
@@ -120,6 +132,8 @@ trysource() {  # used in other scripts
 addpath -p "$HOME/.local/bin" "$HOME/.local/bin/tintedbin" "$HOME/.local/bin/polybar" "$HOME/.local/bin/bspwm" "$HOME/.local/bin/menu"
 addpath -a  "$HOME/.local/bin/cp-p" 
 addpathsin "$HOME/.local/bin" 
+## /usr/lib to library path
+export LD_LIBRARY_PATH="/usr/lib/:$LD_LIBRARY_PATH"
 ## bspwm
 export WINDOW_GAP=22
 ## polybar
@@ -175,9 +189,8 @@ export SQLITE_HISTFILE="$HOME/.cache/sqlite_history"
 mkxprt WINEPREFIX "$HOME/.local/share/wineprefix/default"
 ## task
 export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
-#mkxprt -f TASKRC "$XDG_CONFIG_HOME/task/taskrc"
-mkxprt TASKDATA "$XDG_DOCUMENTS_DIR/tmp/task"
-mkxprt TIMEWARRIORDB "$XDG_DOCUMENTS_DIR/time"
+mkxprt TASKDATA "$XDG_DOCUMENTS_DATA/taskwarrior"
+mkxprt TIMEWARRIORDB "$XDG_DOCUMENTS_DATA/timewarrior"
 ## ccache
 mkxprt CCACHE_BASEDIR "$HOME/.cache/ccache"
 export CCACHE_CONFIGPATH="$HOME/.config/ccache.conf"
@@ -186,6 +199,13 @@ mkxprt GNUPGHOME "$HOME/.config/gnupg"
 export INPUTRC="$HOME/.config/inputrc"
 ## vim-gnupg
 export GPG_TTY=`tty`
+## bookmark
+export BOOKMARKFILE="$XDG_DOCUMENTS_DATA/bookmark/urls_v0.1.json"
+## PostgreSQL
+mkxprt -f PSQL_HISTORY "$XDG_CACHE_HOME/postgres/history"
+mkxprt -f PSQLRC "$XDG_CONFIG_HOME/postgres/psqlrc"
+## tmsu
+mkxprt -d TMSU_DB "$XDG_DATA_HOME/tmsu/tags.db"
 ## java options
 _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on $_JAVA_OPTIONS"
 _JAVA_OPTIONS="-Dswing.aatext=true $_JAVA_OPTIONS"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo 'No search argument given' && exit 1
+[ -z "$1" ] && target='[A-Za-z0-9]+' || target="$@"
+
+DIR="$HOME/pro" 
+rg --follow -g 'README.*' -i -e ":$target:" "$DIR" 2>'/dev/null' | while read line
+  do
+    directory=`dirname "$line"`
+    project=`basename "$directory"`
+    printf '%s\t%s\n' $project $directory
+  done

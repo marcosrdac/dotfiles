@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BARPID=`ps -o ppid= $$`
+SOFTWARE=${0%%_*}
+TIMEREADER="${SOFTWARE}_time"
+DATEFIFO="`$TIMEREADER $BARPID`"
+
+tail -f "$DATEFIFO"
