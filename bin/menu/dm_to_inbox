@@ -1,13 +1,13 @@
 #!/bin/sh
 
-DMENU=${DMENU:-'dmenu'}
+MENU=${MENU:-'dmenu'}
 LOGDIR="${XDG_DOCUMENTS_DATA:="$HOME/Documents"}/inbox"
 LOGFILE="$LOGDIR/index.md"
 # making sure paths exist
 [ -d $LOGDIR ] || mkdir -p $LOGDIR
 [ -f $LOGFILE ] || touch $LOGFILE
 
-note=$(printf "" | $DMENU -p "note") || exit 1
+note=$(printf "" | $MENU -p "note") || exit 1
 time=$(date +'%Y%m%d%H%M%S')
 echo -e "${time}\t${note}" >> "$LOGFILE"
 

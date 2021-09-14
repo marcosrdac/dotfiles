@@ -15,11 +15,10 @@ export TRUEBROWSER="qutebrowser"
 export READER="zathura"
 export XIMAGEVIEWER="sxiv"
 export WEBCAM="/dev/video0"
-export DMENU="menu"  # Change to XMENU
 export XMENU="menu"
-export XMENURUN="menu_run"
-export WMENU="wofi --show=dmenu -M fuzzy -e -W '100%'"
-export WMENURUN="wofi --show=run -M fuzzy -e -W '100%'"
+export WMENU="bemenu"
+export MENU="menu"
+export MENURUN="menurun"
 
 export TASK="task"
 export AURMANAGER="yay"
@@ -77,7 +76,7 @@ export XDG_TEMPLATES_DIR="$XDG_RESOURCES_DIR/tpt"   # XDG
 export XDG_VIDEOS_DIR="$HOME/vid"                   # XDG
 mkxprt XDG_DOWNLOAD_DIR "$XDG_TMP_DIR/tmp"          # XDG
 mkxprt XDG_DESKTOP_DIR "$XDG_TMP_DIR/tmp"           # XDG
-mkxprt XDG_SCREENSHOTS_DIR "$XDG_PICTURES_DIR/scr"  # custom
+mkxprt XDG_SCREENSHOT_DIR "$XDG_PICTURES_DIR/scr"  # custom
 mkxprt XDG_MAIL_DIR "$XDG_DATA_HOME/mail"           # custom
 
 
@@ -224,3 +223,5 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 ## setting a basement for messy software... (you better behave!)
 mkxprt JUNKHOME "$HOME/.cache/junkhome"
+## nix
+. /etc/profile.d/nix{,-daemon}.sh

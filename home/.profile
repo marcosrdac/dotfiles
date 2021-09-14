@@ -7,3 +7,5 @@
 . $HOME/.config/shell/shrc
 
 ttystartup 2>/dev/null
+
+[ -z "$@" ] || "$@"

@@ -11,12 +11,12 @@
     (size 1066 740))
 (session-info "toplevel"
     (factory-entry "gimp-single-image-window")
-    (position 36 36)
-    (size 1294 696)
+    (position 22 44)
+    (size 1316 696)
     (open-on-exit)
     (aux-info
-        (left-docks-width "75")
-        (right-docks-width "245")
+        (left-docks-width "58")
+        (right-docks-width "401")
         (maximized "no"))
     (gimp-toolbox
         (side left))
@@ -89,7 +89,7 @@
                 (aux-info
                     (current-page "GimpColorSelect"))))
         (book
-            (position 441)
+            (position 383)
             (current-page 0)
             (dockable "gimp-layer-list"
                 (tab-style icon)
@@ -107,7 +107,7 @@
     (size 1016 686))
 (session-info "toplevel"
     (factory-entry "gimp-file-open-dialog")
-    (position 10 21)
+    (position 142 126)
     (size 1340 720))
 (session-info "toplevel"
     (factory-entry "gimp-toolbox-color-dialog")
@@ -195,7 +195,7 @@
     (position 414 242))
 (session-info "toplevel"
     (factory-entry "gimp-file-open-location-dialog")
-    (position 452 316))
+    (position 452 311))
 (session-info "toplevel"
     (factory-entry "gimp-action-search-dialog")
     (position 600 356)

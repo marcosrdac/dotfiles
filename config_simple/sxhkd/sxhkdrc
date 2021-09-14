@@ -94,7 +94,7 @@ alt + s; {_,shift + } s
 {_,alt + v : } alt + {Return,o}
 	{ ,pkill -ALRM sxhkd;} \
 		{$TERMINAL   , \
-		 menu_run    }
+		 $MENURUN    }
 
 # opeinig default software (w for window)
 {_,alt + v : } alt + w ; {w,s,v,b,shift+b,n,shift+n,m,g,j,shift+j,k,shift+k}
@@ -205,7 +205,7 @@ XF86MonBrightness{Down,Up}
 
 # screenshots
 {_,shift + ,alt +} @Print
-	screenshot {_, --slice, --slice}
+	xorg_screenshot {_, --slice, --slice}
 
 # power button
 XF86PowerOff

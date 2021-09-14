@@ -22,7 +22,7 @@
     horizontal_padding = 10
     frame_width = 5
 
-    frame_color = "#89e2c2"
+    frame_color = "#f2ebdd"
 
     #  * auto: dunst tries to find a color fitting to the background;
     #  * foreground: use the same color as the foreground;
@@ -173,23 +173,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#0F161E"
-    foreground = "#89e2c2"
+    background = "#030303"
+    foreground = "#f2ebdd"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#0F161E"
-    foreground = "#89e2c2"
+    background = "#030303"
+    foreground = "#f2ebdd"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#89e2c2"
-    foreground = "#0F161E"
-    #frame_color = "#0F161E"
+    background = "#f2ebdd"
+    foreground = "#030303"
+    #frame_color = "#030303"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon

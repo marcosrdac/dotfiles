@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ -f "$HOME/.cache/wal/colors.sh" ]
+then
+  # import colors from wal
+  . "$HOME/.cache/wal/colors.sh"
+else
+  # set default colors
+  background='#020202'
+  foreground='#ffffff'
+fi
+
+# import font from Xresources
+font=`xrdb -query | awk -F'\t' '$1~/^*font:$/{print $2}'`
+
+# call dmenu with custom settings
+if [ "$XDG_SESSION_TYPE" = "wayland" ]
+then
+  fontname=`echo $font | cut -d ':' -f 1`
+  fontsize=`echo $font | cut -d ':' -f 2 | cut -d '=' -f 2`
+  bemenu-run -b -l 15 --fn "$fontname $fontsize" --tb "$background" --tf "$foreground" --nb "$background" --nf "$foreground" --sb "$foreground" --sf "$background" --fb "$background" --ff "$foreground" --hb "$foreground" --hf "$background" "$@" -p run
+else
+  dmenu_run -i  -b -l 15 -fn "$font" -nb $background -nf $foreground -sb $foreground -sf $background "$@" -p run
+fi

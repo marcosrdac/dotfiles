@@ -1,10 +1,10 @@
 #!/bin/sh
 
-DMENU=${DMENU:-dmenu}
+MENU=${MENU:-dmenu}
 
 # choices
 choices="pomodoro\nbreak\nhard break\nkill"
-chosen=$(echo -e "$choices" | $DMENU -p 'set alarm:')
+chosen=$(echo -e "$choices" | $MENU -p 'set alarm')
 [ -z "$chosen" ] && exit 0
 
 case "$chosen" in

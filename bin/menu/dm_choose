@@ -4,7 +4,7 @@
 #
 # Function: use dmenu to make user choose option easily
 
-dmenu_command=${DMENU:-'dmenu'}
+dmenu_command=${MENU:-'dmenu'}
 
 [ $# -ge 1 ] && ask=$1 && shift
 

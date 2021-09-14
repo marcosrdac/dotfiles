@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+from sys import argv
+import unicodedata
+
+var = None
+
+if not var:
+    if len(argv) < 2:
+        print('Error: at least one string argument needed')
+
+    text = ' '.join(argv[1:])
+else:
+    text = var
+
+text = unicodedata.normalize("NFD", text)
+text = text.encode("ascii", "ignore")
+text = text.decode("utf-8")
+
+print(text)

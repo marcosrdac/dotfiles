@@ -1,0 +1,9 @@
+#!/bin/sh
+
+clipboard="`xclip -o -selection clipboard`"
+primary="`xclip -o -selection primary`"
+
+echo "$clipboard" | xclip -i -selection primary
+echo "$primary" | xclip -i -selection clipboard
+
+notify-send "Selections swapped"
